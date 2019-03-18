@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/collection', function () {
-    $items = App\Items::all();
-    return view('items/collection', compact('items'));
-});
+Route::get('/collection', 'ItemsController@collection');
 
-Route::get('/collection/{item}', function ($id) {
-    $item = App\Items::all();
-    return view('items/collection', compact('items'));
-});
+Route::get('/collection/{item}', 'ItemsController@item');

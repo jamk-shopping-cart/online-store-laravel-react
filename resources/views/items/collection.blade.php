@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            @foreach ($items as $item) {{-- <a href="collection/{{ $item->$id }}"> --}}
-                <li>{{ $item->model }}</li>
-            {{-- </a> --}} @endforeach
-        </div>
+    <div>
+        @foreach ($items as $item)
+        <li>
+            <a href="collection/{{ $item->id }}">
+                {{ $item->model }}
+            </a>
+        </li>
+        @endforeach
     </div>
 </body>
 

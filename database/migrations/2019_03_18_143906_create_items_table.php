@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateItemsTable extends Migration
 {
@@ -14,7 +14,14 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('model');
+            $table->integer('price');
+            $table->string('color');
+            $table->string('material');
+            $table->string('closure_method');
+            $table->text('description');
+            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@
     <div>
         @foreach ($items as $item)
         <li>
-            <a href="{{ $item->id }}">
+            <a href="collection/{{ $item->id }}">
                 {{ $item->model }}
             </a>
         </li>

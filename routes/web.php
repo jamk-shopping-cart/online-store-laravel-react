@@ -11,10 +11,11 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/collection', 'ItemsController@collection');
+// Route::get('/collection', 'ItemsController@collection');
+// Route::get('/collection/{item}', 'ItemsController@item');
 
-Route::get('/collection/{item}', 'ItemsController@item');
+Route::view('/{path?}', 'app');

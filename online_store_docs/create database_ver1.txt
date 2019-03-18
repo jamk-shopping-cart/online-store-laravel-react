@@ -1,0 +1,102 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema K8397_2
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema K8397_2
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `K8397_2` DEFAULT CHARACTER SET utf8 ;
+USE `K8397_2` ;
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`kayttajatyyppi`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`kayttajatyyppi` (
+  `ktyyppiID` INT NOT NULL AUTO_INCREMENT,
+  `ktyyppinimi` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ktyyppiID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`kayttaja`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`kayttaja` (
+  `kayttajaID` INT NOT NULL AUTO_INCREMENT,
+  `ktyyppiID` INT NOT NULL,
+  `kayttajanimi` VARCHAR(45) NOT NULL,
+  `salasana` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(64) NOT NULL,
+  `postiosoite` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (`kayttajaID`),
+  INDEX `fk_ktyyppiID_idx` (`ktyyppiID` ASC),
+  CONSTRAINT `fk_ktyyppiID`
+    FOREIGN KEY (`ktyyppiID`)
+    REFERENCES `K8397_2`.`kayttajatyyppi` (`ktyyppiID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`tuote`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`tuote` (
+  `tuoteID` INT NOT NULL AUTO_INCREMENT,
+  `tuotenimi` VARCHAR(45) NOT NULL,
+  `hinta` DECIMAL(7,2) NOT NULL,
+  PRIMARY KEY (`tuoteID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`tilaus`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`tilaus` (
+  `tilausID` INT NOT NULL AUTO_INCREMENT,
+  `kayttajaID` INT NOT NULL,
+  `paivays` DATETIME NOT NULL,
+  PRIMARY KEY (`tilausID`),
+  INDEX `fk_kayttajaID_idx` (`kayttajaID` ASC),
+  CONSTRAINT `fk_kayttajaID`
+    FOREIGN KEY (`kayttajaID`)
+    REFERENCES `K8397_2`.`kayttaja` (`kayttajaID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`tilausrivi`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`tilausrivi` (
+  `tuoteriviID` INT NOT NULL AUTO_INCREMENT,
+  `tilausID` INT NOT NULL,
+  `tuotemaara` INT NOT NULL,
+  `toteutunut_hinta` DECIMAL(7,2) NOT NULL,
+  `tuoteID` INT NOT NULL,
+  PRIMARY KEY (`tuoteriviID`),
+  INDEX `fk_tilausID_idx` (`tilausID` ASC),
+  INDEX `fk_tilausrivi_idx` (`tuoteID` ASC),
+  CONSTRAINT `fk_tilausID`
+    FOREIGN KEY (`tilausID`)
+    REFERENCES `K8397_2`.`tilaus` (`tilausID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tuoteID`
+    FOREIGN KEY (`tuoteID`)
+    REFERENCES `K8397_2`.`tuote` (`tuoteID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

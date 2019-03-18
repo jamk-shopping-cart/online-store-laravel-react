@@ -1,0 +1,102 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema K8397_2
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema K8397_2
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `K8397_2` DEFAULT CHARACTER SET utf8 ;
+USE `K8397_2` ;
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`usertype`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`usertype` (
+  `usertypeID` INT NOT NULL AUTO_INCREMENT,
+  `usertypename` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`usertypeID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`user` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `usertypeID` INT NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(64) NOT NULL,
+  `email` VARCHAR(64) NOT NULL,
+  `postaddress` VARCHAR(64) NOT NULL,
+  PRIMARY KEY (`userID`),
+  INDEX `fk_usertypeID_idx` (`usertypeID` ASC),
+  CONSTRAINT `fk_usertypeID`
+    FOREIGN KEY (`usertypeID`)
+    REFERENCES `K8397_2`.`usertype` (`usertypeID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`product` (
+  `productID` INT NOT NULL AUTO_INCREMENT,
+  `productname` VARCHAR(45) NOT NULL,
+  `price` DECIMAL(7,2) NOT NULL,
+  PRIMARY KEY (`productID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`order` (
+  `orderID` INT NOT NULL AUTO_INCREMENT,
+  `userID` INT NOT NULL,
+  `date` DATETIME NOT NULL,
+  PRIMARY KEY (`orderID`),
+  INDEX `fk_userID_idx` (`userID` ASC),
+  CONSTRAINT `fk_userID`
+    FOREIGN KEY (`userID`)
+    REFERENCES `K8397_2`.`user` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `K8397_2`.`orderline`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `K8397_2`.`orderline` (
+  `orderlineID` INT NOT NULL AUTO_INCREMENT,
+  `orderID` INT NOT NULL,
+  `productID` INT NOT NULL,
+  `amount` INT NOT NULL,
+  `price` DECIMAL(7,2) NOT NULL,
+  PRIMARY KEY (`orderlineID`),
+  INDEX `fk_orderID_idx` (`orderID` ASC),
+  INDEX `fk_orderline_idx` (`productID` ASC),
+  CONSTRAINT `fk_orderID`
+    FOREIGN KEY (`orderID`)
+    REFERENCES `K8397_2`.`order` (`orderID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_productID`
+    FOREIGN KEY (`productID`)
+    REFERENCES `K8397_2`.`product` (`productID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

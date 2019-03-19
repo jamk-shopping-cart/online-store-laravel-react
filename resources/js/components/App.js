@@ -99,8 +99,8 @@ class App extends Component {
 
 export default App;
 
-if (document.getElementById('example')) {
-    ReactDOM.render(<App />, document.getElementById('example'));
+if (document.getElementById('root')) {
+    ReactDOM.render(<App />, document.getElementById('root'));
 }
 // serviceWorker.unregister();
 

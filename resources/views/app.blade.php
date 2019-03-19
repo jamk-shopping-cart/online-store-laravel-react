@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div id="example">Hello!</div>
+    <div id="root"></div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

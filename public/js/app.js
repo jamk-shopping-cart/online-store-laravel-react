@@ -63839,28 +63839,27 @@ if (token) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _serviceWorker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./serviceWorker */ "./resources/js/components/serviceWorker.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var roboto_fontface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! roboto-fontface */ "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css");
-/* harmony import */ var roboto_fontface__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(roboto_fontface__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var animate_css_animate_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! animate.css/animate.css */ "./node_modules/animate.css/animate.css");
-/* harmony import */ var animate_css_animate_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(animate_css_animate_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dropdown/style.css */ "./node_modules/react-dropdown/style.css");
-/* harmony import */ var react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _StartPage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./StartPage */ "./resources/js/components/StartPage.js");
-/* harmony import */ var _Registration__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Registration */ "./resources/js/components/Registration.js");
-/* harmony import */ var _Collection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Collection */ "./resources/js/components/Collection.js");
-/* harmony import */ var _ItemInfo__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ItemInfo */ "./resources/js/components/ItemInfo.js");
-/* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./SignIn */ "./resources/js/components/SignIn.js");
-/* harmony import */ var _ShoppingCart__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ShoppingCart */ "./resources/js/components/ShoppingCart.js");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var roboto_fontface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! roboto-fontface */ "./node_modules/roboto-fontface/css/roboto/roboto-fontface.css");
+/* harmony import */ var roboto_fontface__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(roboto_fontface__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var animate_css_animate_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! animate.css/animate.css */ "./node_modules/animate.css/animate.css");
+/* harmony import */ var animate_css_animate_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(animate_css_animate_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-dropdown/style.css */ "./node_modules/react-dropdown/style.css");
+/* harmony import */ var react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dropdown_style_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
+/* harmony import */ var _StartPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./StartPage */ "./resources/js/components/StartPage.js");
+/* harmony import */ var _Registration__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Registration */ "./resources/js/components/Registration.js");
+/* harmony import */ var _Collection__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Collection */ "./resources/js/components/Collection.js");
+/* harmony import */ var _ItemInfo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ItemInfo */ "./resources/js/components/ItemInfo.js");
+/* harmony import */ var _SignIn__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./SignIn */ "./resources/js/components/SignIn.js");
+/* harmony import */ var _ShoppingCart__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ShoppingCart */ "./resources/js/components/ShoppingCart.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63879,7 +63878,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-
+// import * as serviceWorker from './serviceWorker';
 
 
 
@@ -63971,30 +63970,30 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+      return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/",
-        component: _StartPage__WEBPACK_IMPORTED_MODULE_9__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+        component: _StartPage__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/signin",
-        component: _SignIn__WEBPACK_IMPORTED_MODULE_13__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+        component: _SignIn__WEBPACK_IMPORTED_MODULE_12__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/registration",
-        component: _Registration__WEBPACK_IMPORTED_MODULE_10__["default"],
+        component: _Registration__WEBPACK_IMPORTED_MODULE_9__["default"],
         count: this.state.count
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/collection",
-        component: _Collection__WEBPACK_IMPORTED_MODULE_11__["default"],
+        component: _Collection__WEBPACK_IMPORTED_MODULE_10__["default"],
         callback: this.setItem.bind(this),
         count: this.state.count
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/iteminfo",
-        component: _ItemInfo__WEBPACK_IMPORTED_MODULE_12__["default"],
+        component: _ItemInfo__WEBPACK_IMPORTED_MODULE_11__["default"],
         item: this.state.item,
         callback: this.addItemToCart.bind(this),
         count: this.state.count
-      }), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/cart",
-        component: _ShoppingCart__WEBPACK_IMPORTED_MODULE_14__["default"],
+        component: _ShoppingCart__WEBPACK_IMPORTED_MODULE_13__["default"],
         cart: this.state.cart,
         size: this.state.size,
         count: this.state.count
@@ -64003,15 +64002,14 @@ function (_Component) {
   }]);
 
   return App;
-}(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_6__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
-if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_6___default.a.render(react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(App, null), document.getElementById('example'));
-}
-
-_serviceWorker__WEBPACK_IMPORTED_MODULE_0__["unregister"](); // App <- Route (callback) <- Collection (callback) <- ItemList (callback) <- Item (callback)
+if (document.getElementById('root')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_5___default.a.render(react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(App, null), document.getElementById('root'));
+} // serviceWorker.unregister();
+// App <- Route (callback) <- Collection (callback) <- ItemList (callback) <- Item (callback)
 // App -> Route (item) -> ItemInfo (item)
 // App <- Route (callback) <- ItemInfo (callback)
 // App -> Route (count) -> ItemInfo (count) -> Navigation (count) -> Counter (count)
@@ -65284,103 +65282,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (StartPage);
-
-/***/ }),
-
-/***/ "./resources/js/components/serviceWorker.js":
-/*!**************************************************!*\
-  !*** ./resources/js/components/serviceWorker.js ***!
-  \**************************************************/
-/*! exports provided: register, unregister */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unregister", function() { return unregister; });
-// This optional code is used to register a service worker.
-// register() is not called by default.
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read http://bit.ly/CRA-PWA
-var isLocalhost = Boolean(window.location.hostname === 'localhost' || // [::1] is the IPv6 localhost address.
-window.location.hostname === '[::1]' || // 127.0.0.1/8 is considered localhost for IPv4.
-window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/));
-function register(config) {
-  if (false) { var publicUrl; }
-}
-
-function registerValidSW(swUrl, config) {
-  navigator.serviceWorker.register(swUrl).then(function (registration) {
-    registration.onupdatefound = function () {
-      var installingWorker = registration.installing;
-
-      if (installingWorker == null) {
-        return;
-      }
-
-      installingWorker.onstatechange = function () {
-        if (installingWorker.state === 'installed') {
-          if (navigator.serviceWorker.controller) {
-            // At this point, the updated precached content has been fetched,
-            // but the previous service worker will still serve the older
-            // content until all client tabs are closed.
-            console.log('New content is available and will be used when all ' + 'tabs for this page are closed. See http://bit.ly/CRA-PWA.'); // Execute callback
-
-            if (config && config.onUpdate) {
-              config.onUpdate(registration);
-            }
-          } else {
-            // At this point, everything has been precached.
-            // It's the perfect time to display a
-            // "Content is cached for offline use." message.
-            console.log('Content is cached for offline use.'); // Execute callback
-
-            if (config && config.onSuccess) {
-              config.onSuccess(registration);
-            }
-          }
-        }
-      };
-    };
-  }).catch(function (error) {
-    console.error('Error during service worker registration:', error);
-  });
-}
-
-function checkValidServiceWorker(swUrl, config) {
-  // Check if the service worker can be found. If it can't reload the page.
-  fetch(swUrl).then(function (response) {
-    // Ensure service worker exists, and that we really are getting a JS file.
-    var contentType = response.headers.get('content-type');
-
-    if (response.status === 404 || contentType != null && contentType.indexOf('javascript') === -1) {
-      // No service worker found. Probably a different app. Reload the page.
-      navigator.serviceWorker.ready.then(function (registration) {
-        registration.unregister().then(function () {
-          window.location.reload();
-        });
-      });
-    } else {
-      // Service worker found. Proceed as normal.
-      registerValidSW(swUrl, config);
-    }
-  }).catch(function () {
-    console.log('No internet connection found. App is running in offline mode.');
-  });
-}
-
-function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(function (registration) {
-      registration.unregister();
-    });
-  }
-}
 
 /***/ }),
 

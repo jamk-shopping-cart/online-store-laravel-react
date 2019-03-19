@@ -1,20 +1,54 @@
 
-// Body
-$body-bg: #f8fafc;
+// // Body
+// $body-bg: #f8fafc;
 
-// Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+// // Typography
+// $font-family-sans-serif: "Nunito", sans-serif;
+// $font-size-base: 0.9rem;
+// $line-height-base: 1.6;
 
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+// // Colors
+// $blue: #3490dc;
+// $indigo: #6574cd;
+// $purple: #9561e2;
+// $pink: #f66D9b;
+// $red: #e3342f;
+// $orange: #f6993f;
+// $yellow: #ffed4a;
+// $green: #38c172;
+// $teal: #4dc0b5;
+// $cyan: #6cb2eb;
+
+$white-color: #fff;
+$blue-color: #00456b;
+$orange-color: #ff9628;
+$grey-color: #808080;
+$lightgrey-color: #d3d3d3;
+$valid-color: #008000;
+$notvalid-color: #b22222;
+
+$font-family: 'Roboto', sans-serif;
+$font-size-1: 1em;
+$font-size-2: $font-size-1 * 1.1;
+$font-size-3: $font-size-1 * 1.2;
+$font-size-4: $font-size-1 * 1.5;
+$font-size-5: $font-size-1 * 2;
+$font-size-6: $font-size-1 * 2.5;
+$font-size-7: $font-size-1 * 3;
+$font-size-8: $font-size-1 * 3.5;
+$font-size-9: $font-size-1 * 4;
+$font-size-circle: $font-size-1 * 0.6;
+
+$font-weight-light: 100;
+$font-weight-normal: $font-weight-light * 2;
+$font-weight-bold: $font-weight-light * 4;
+$font-weight-highbold: $font-weight-light * 7;
+
+$screen-tablet-min: 768px;
+$screen-desktop-min: 991px;
+
+$imgsize: 300px;
+$imgsize-tablet: 600px;
+$imgsize-desktop: 500px;
+
+$max-width: 1300px;

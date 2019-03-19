@@ -1,9 +1,11 @@
+// import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'roboto-fontface';
 import 'animate.css/animate.css';
 import 'react-dropdown/style.css';
 // import 'sass-loader';
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { Route } from './Router';
 import StartPage from './StartPage';
@@ -67,7 +69,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Route path="build/" component={StartPage} />
+                <Route path="/" component={StartPage} />
                 <Route path="/signin" component={SignIn} />
                 <Route path="/registration" component={Registration} count={this.state.count} />
                 <Route
@@ -100,6 +102,7 @@ export default App;
 if (document.getElementById('example')) {
     ReactDOM.render(<App />, document.getElementById('example'));
 }
+// serviceWorker.unregister();
 
 // App <- Route (callback) <- Collection (callback) <- ItemList (callback) <- Item (callback)
 // App -> Route (item) -> ItemInfo (item)

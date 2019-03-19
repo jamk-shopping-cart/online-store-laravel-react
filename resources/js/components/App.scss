@@ -1,18 +1,4 @@
-// // Fonts
-// @import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// // Variables
-@import 'variables';
-
-// // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
-
-// .navbar-laravel {
-//   background-color: #fff;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-// }
-
-// @import 'src/scss/_variables.scss';
+@import 'src/scss/_variables.scss';
 
 @mixin tablet {
   @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-min) {
@@ -339,4 +325,3 @@ nav {
 .Dropdown-placeholder {
   padding-left: 1.5em;
 }
-

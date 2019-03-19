@@ -16,16 +16,15 @@ const historyReplace = path => {
 };
 
 export class Link extends Component {
-  static propTypes = {
-    to: PropTypes.string.isRequired,
-    replace: PropTypes.bool
-  };
-  handleClick = event => {
-    const { replace, to } = this.props;
-    event.preventDefault();
-
-    replace ? historyReplace(to) : historyPush(to);
-  };
+//   static propTypes = {
+//     to: PropTypes.string.isRequired,
+//     replace: PropTypes.bool
+//   };
+//   handleClick = event => {
+//     const { replace, to } = this.props;
+//     event.preventDefault();
+//     replace ? historyReplace(to) : historyPush(to);
+//   };
 
   render() {
     const { to, children } = this.props;
@@ -48,9 +47,9 @@ export class Route extends Component {
     unregister(this);
   }
 
-  handlePop = () => {
-    this.forceUpdate();
-  };
+//   handlePop = () => {
+//     this.forceUpdate();
+//   };
 
   render() {
     const { path, exact, component, render, callback, item, count, cart } = this.props;
@@ -94,4 +93,19 @@ const matchPath = (pathname, options) => {
     url,
     isExact
   };
+};
+
+Link.propTypes = {
+    to: PropTypes.string.isRequired,
+    replace: PropTypes.bool
+};
+
+Link.handleClick = event => {
+    const { replace, to } = this.props;
+    event.preventDefault();
+    replace ? historyReplace(to) : historyPush(to);
+};
+
+Route.handlePop = () => {
+    this.forceUpdate();
 };

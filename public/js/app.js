@@ -63852,7 +63852,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _StartPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./StartPage */ "./resources/js/components/StartPage.js");
 /* harmony import */ var _Registration__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Registration */ "./resources/js/components/Registration.js");
 /* harmony import */ var _Collection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Collection */ "./resources/js/components/Collection.js");
@@ -64232,7 +64231,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_2__);
 var _this = undefined;
 
 
@@ -64287,7 +64285,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navigation */ "./resources/js/components/Navigation.js");
 /* harmony import */ var _DropList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DropList */ "./resources/js/components/DropList.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -64523,7 +64520,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Counter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Counter */ "./resources/js/components/Counter.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -64643,7 +64639,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64769,10 +64764,211 @@ function (_Component) {
 /*!*******************************************!*\
   !*** ./resources/js/components/Router.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: Link, Route */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Applications/MAMP/htdocs/laravel-react-online-store/resources/js/components/Router.js: Support for the experimental syntax 'classProperties' isn't currently enabled (19:20):\n\n\u001b[0m \u001b[90m 17 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mLink\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mComponent\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 | \u001b[39m  static propTypes \u001b[33m=\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 | \u001b[39m    to\u001b[33m:\u001b[39m \u001b[33mPropTypes\u001b[39m\u001b[33m.\u001b[39mstring\u001b[33m.\u001b[39misRequired\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m    replace\u001b[33m:\u001b[39m \u001b[33mPropTypes\u001b[39m\u001b[33m.\u001b[39mbool\u001b[0m\n\u001b[0m \u001b[90m 22 | \u001b[39m  }\u001b[33m;\u001b[39m\u001b[0m\n\nAdd @babel/plugin-proposal-class-properties (https://git.io/vb4SL) to the 'plugins' section of your Babel config to enable transformation.\n    at Object.raise (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:3831:17)\n    at Object.expectPlugin (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:5148:18)\n    at Object.parseClassProperty (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8227:12)\n    at Object.pushClassProperty (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8191:30)\n    at Object.parseClassMemberWithIsStatic (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8130:14)\n    at Object.parseClassMember (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8067:10)\n    at withTopicForbiddingContext (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8022:14)\n    at Object.withTopicForbiddingContext (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7150:14)\n    at Object.parseClassBody (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7999:10)\n    at Object.parseClass (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7973:10)\n    at Object.parseStatementContent (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7289:21)\n    at Object.parseStatement (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7243:17)\n    at Object.parseExportDeclaration (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8412:17)\n    at Object.maybeParseExportDeclaration (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8361:31)\n    at Object.parseExport (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8290:29)\n    at Object.parseStatementContent (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7347:27)\n    at Object.parseStatement (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7243:17)\n    at Object.parseBlockOrModuleBlockBody (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7810:25)\n    at Object.parseBlockBody (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7797:10)\n    at Object.parseTopLevel (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:7181:10)\n    at Object.parse (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:8660:17)\n    at parse (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/parser/lib/index.js:10660:38)\n    at parser (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Applications/MAMP/htdocs/laravel-react-online-store/node_modules/@babel/core/lib/transform.js:34:34)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\n    at process._tickCallback (internal/process/next_tick.js:180:9)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return Route; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+var _this = undefined;
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var instances = [];
+
+var register = function register(comp) {
+  return instances.push(comp);
+};
+
+var unregister = function unregister(comp) {
+  return instances.splice(instances.indexOf(comp), 1);
+};
+
+var historyPush = function historyPush(path) {
+  window.history.pushState({}, null, path);
+  instances.forEach(function (instance) {
+    return instance.forceUpdate();
+  });
+};
+
+var historyReplace = function historyReplace(path) {
+  window.history.replaceState({}, null, path);
+  instances.forEach(function (instance) {
+    return instance.forceUpdate();
+  });
+};
+
+var Link =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Link, _Component);
+
+  function Link() {
+    _classCallCheck(this, Link);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Link).apply(this, arguments));
+  }
+
+  _createClass(Link, [{
+    key: "render",
+    //   static propTypes = {
+    //     to: PropTypes.string.isRequired,
+    //     replace: PropTypes.bool
+    //   };
+    //   handleClick = event => {
+    //     const { replace, to } = this.props;
+    //     event.preventDefault();
+    //     replace ? historyReplace(to) : historyPush(to);
+    //   };
+    value: function render() {
+      var _this$props = this.props,
+          to = _this$props.to,
+          children = _this$props.children;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: to,
+        onClick: this.handleClick
+      }, children);
+    }
+  }]);
+
+  return Link;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+var Route =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(Route, _Component2);
+
+  function Route() {
+    _classCallCheck(this, Route);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Route).apply(this, arguments));
+  }
+
+  _createClass(Route, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      window.addEventListener('popstate', this.handlePop);
+      register(this);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('popstate', this.handlePop);
+      unregister(this);
+    } //   handlePop = () => {
+    //     this.forceUpdate();
+    //   };
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          path = _this$props2.path,
+          exact = _this$props2.exact,
+          component = _this$props2.component,
+          render = _this$props2.render,
+          callback = _this$props2.callback,
+          item = _this$props2.item,
+          count = _this$props2.count,
+          cart = _this$props2.cart;
+      var match = matchPath(window.location.pathname, {
+        path: path,
+        exact: exact
+      });
+      if (!match) return null;else if (component) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(component, {
+        match: match,
+        callback: callback,
+        item: item,
+        count: count,
+        cart: cart
+      });else if (render) return render({
+        match: match
+      });
+      return null;
+    }
+  }]);
+
+  return Route;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+Route.propTypes = {
+  path: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  exact: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  component: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  render: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
+
+var matchPath = function matchPath(pathname, options) {
+  var _options$exact = options.exact,
+      exact = _options$exact === void 0 ? false : _options$exact,
+      path = options.path;
+
+  if (!path) {
+    return {
+      path: null,
+      url: pathname,
+      isExact: true
+    };
+  }
+
+  var match = new RegExp("".concat(path, "$")).exec(pathname);
+
+  if (!match) {
+    return null;
+  }
+
+  var url = match[0];
+  var isExact = pathname === url;
+
+  if (exact && !isExact) {
+    return null;
+  }
+
+  return {
+    path: path,
+    url: url,
+    isExact: isExact
+  };
+};
+
+Link.propTypes = {
+  to: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  replace: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+
+Link.handleClick = function (event) {
+  var _this$props3 = _this.props,
+      replace = _this$props3.replace,
+      to = _this$props3.to;
+  event.preventDefault();
+  replace ? historyReplace(to) : historyPush(to);
+};
+
+Route.handlePop = function () {
+  _this.forceUpdate();
+};
 
 /***/ }),
 
@@ -64933,7 +65129,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65025,7 +65220,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Router */ "./resources/js/components/Router.js");
-/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Router__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }

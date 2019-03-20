@@ -11,11 +11,15 @@
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/collection', 'ItemsController@collection');
 // Route::get('/collection/{item}', 'ItemsController@item');
 
-Route::view('/{path?}', 'app');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::view('/{path?}', 'app');

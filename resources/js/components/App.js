@@ -69,7 +69,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Route path="/" component={StartPage} />
+                <Route path="/home" component={StartPage} />
                 <Route path="/signin" component={SignIn} />
                 <Route path="/registration" component={Registration} count={this.state.count} />
                 <Route

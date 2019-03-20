@@ -63971,7 +63971,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
-        path: "/",
+        path: "/home",
         component: _StartPage__WEBPACK_IMPORTED_MODULE_8__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/signin",

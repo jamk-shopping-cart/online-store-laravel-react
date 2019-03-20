@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 
 class ShoppingCart extends Component {
   totalPriceItem(id) {
-    return id.count * Number(id.item.price.substring(1));
+    return id.count * id.item.price;
   }
 
   totalPriceCart(cart) {

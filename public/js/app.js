@@ -65021,7 +65021,7 @@ function (_Component) {
   _createClass(ShoppingCart, [{
     key: "totalPriceItem",
     value: function totalPriceItem(id) {
-      return id.count * Number(id.item.price.substring(1));
+      return id.count * id.item.price;
     }
   }, {
     key: "totalPriceCart",

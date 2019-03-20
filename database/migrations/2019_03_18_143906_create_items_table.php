@@ -21,7 +21,8 @@ class CreateItemsTable extends Migration
             $table->string('material');
             $table->string('closure_method');
             $table->text('description');
-            $table->integer('quantity')->default(0);
+            $table->string('imgUrl');
+            // $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

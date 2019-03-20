@@ -39,7 +39,7 @@ class ItemInfo extends Component {
               </div>
             </div>
             <div className="col-12 row ml-2">
-              <span className="col-1 col-lg-3 model priceMargin">{this.props.item.price}</span>
+              <span className="col-1 col-lg-3 model priceMargin">€{this.props.item.price}</span>
               <DropList setSize={this.setSize.bind(this)} />
               <i
                 className="fas fa-2x fa-cart-plus rounded-circle ml-3 p-3 addIcon"

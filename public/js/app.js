@@ -64262,7 +64262,7 @@ var Item = function Item(_ref) {
     alt: "shoes model"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "price col-12 col-lg-2"
-  }, item.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\u20AC", item.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12 col-lg-10"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))));
 };
@@ -64371,7 +64371,7 @@ function (_Component) {
           className: "col-12 row ml-2"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "col-1 col-lg-3 model priceMargin"
-        }, this.props.item.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }, "\u20AC", this.props.item.price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DropList__WEBPACK_IMPORTED_MODULE_3__["default"], {
           setSize: this.setSize.bind(this)
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-2x fa-cart-plus rounded-circle ml-3 p-3 addIcon",
@@ -64464,12 +64464,15 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('https://5bf089690756d2001311987d.mockapi.io/shoes').then(function (res) {
+      // fetch('https://5bf089690756d2001311987d.mockapi.io/shoes')
+      fetch('/api/collection').then(function (res) {
         return res.json();
       }).then(function (result) {
+        console.log('result:', result);
+
         _this2.setState({
           isLoaded: true,
-          items: result.items
+          items: result
         });
       }, function (error) {
         _this2.setState({
@@ -64829,10 +64832,6 @@ var Link =
 function (_Component) {
   _inherits(Link, _Component);
 
-  //   static propTypes = {
-  //     to: PropTypes.string.isRequired,
-  //     replace: PropTypes.bool
-  //   };
   function Link(props) {
     var _this;
 
@@ -64896,10 +64895,7 @@ function (_Component2) {
     value: function componentWillUnmount() {
       window.removeEventListener('popstate', this.handlePop);
       unregister(this);
-    } // handlePop = () => {
-    //     this.forceUpdate();
-    // };
-
+    }
   }, {
     key: "render",
     value: function render() {

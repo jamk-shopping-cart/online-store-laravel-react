@@ -11,7 +11,7 @@ const Item = ({ item, callback }) => {
         <Link className="col-12 col-lg-3" to="iteminfo">
           <img className="imgWidth" src={item.imgUrl} alt="shoes model" />
         </Link>
-        <p className="price col-12 col-lg-2">{item.price}</p>
+        <p className="price col-12 col-lg-2">€{item.price}</p>
         <div className="col-12 col-lg-10">
           <hr />
         </div>

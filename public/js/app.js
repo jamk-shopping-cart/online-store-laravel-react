@@ -64780,8 +64780,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-var _this = undefined;
-
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64831,27 +64829,34 @@ var Link =
 function (_Component) {
   _inherits(Link, _Component);
 
-  function Link() {
+  //   static propTypes = {
+  //     to: PropTypes.string.isRequired,
+  //     replace: PropTypes.bool
+  //   };
+  function Link(props) {
+    var _this;
+
     _classCallCheck(this, Link);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Link).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Link).call(this, props));
+
+    _this.handleClick = function (event) {
+      var _this$props = _this.props,
+          replace = _this$props.replace,
+          to = _this$props.to;
+      event.preventDefault();
+      replace ? historyReplace(to) : historyPush(to);
+    };
+
+    return _this;
   }
 
   _createClass(Link, [{
     key: "render",
-    //   static propTypes = {
-    //     to: PropTypes.string.isRequired,
-    //     replace: PropTypes.bool
-    //   };
-    //   handleClick = event => {
-    //     const { replace, to } = this.props;
-    //     event.preventDefault();
-    //     replace ? historyReplace(to) : historyPush(to);
-    //   };
     value: function render() {
-      var _this$props = this.props,
-          to = _this$props.to,
-          children = _this$props.children;
+      var _this$props2 = this.props,
+          to = _this$props2.to,
+          children = _this$props2.children;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: to,
         onClick: this.handleClick
@@ -64866,10 +64871,18 @@ var Route =
 function (_Component2) {
   _inherits(Route, _Component2);
 
-  function Route() {
+  function Route(props) {
+    var _this2;
+
     _classCallCheck(this, Route);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Route).apply(this, arguments));
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Route).call(this, props));
+
+    _this2.handlePop = function () {
+      _this2.forceUpdate();
+    };
+
+    return _this2;
   }
 
   _createClass(Route, [{
@@ -64883,22 +64896,22 @@ function (_Component2) {
     value: function componentWillUnmount() {
       window.removeEventListener('popstate', this.handlePop);
       unregister(this);
-    } //   handlePop = () => {
+    } // handlePop = () => {
     //     this.forceUpdate();
-    //   };
+    // };
 
   }, {
     key: "render",
     value: function render() {
-      var _this$props2 = this.props,
-          path = _this$props2.path,
-          exact = _this$props2.exact,
-          component = _this$props2.component,
-          render = _this$props2.render,
-          callback = _this$props2.callback,
-          item = _this$props2.item,
-          count = _this$props2.count,
-          cart = _this$props2.cart;
+      var _this$props3 = this.props,
+          path = _this$props3.path,
+          exact = _this$props3.exact,
+          component = _this$props3.component,
+          render = _this$props3.render,
+          callback = _this$props3.callback,
+          item = _this$props3.item,
+          count = _this$props3.count,
+          cart = _this$props3.cart;
       var match = matchPath(window.location.pathname, {
         path: path,
         exact: exact
@@ -64961,18 +64974,6 @@ var matchPath = function matchPath(pathname, options) {
 Link.propTypes = {
   to: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
   replace: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
-};
-
-Link.handleClick = function (event) {
-  var _this$props3 = _this.props,
-      replace = _this$props3.replace,
-      to = _this$props3.to;
-  event.preventDefault();
-  replace ? historyReplace(to) : historyPush(to);
-};
-
-Route.handlePop = function () {
-  _this.forceUpdate();
 };
 
 /***/ }),

@@ -4,7 +4,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import 'roboto-fontface';
 import 'animate.css/animate.css';
 import 'react-dropdown/style.css';
-// import 'sass-loader';
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { Route } from './Router';
@@ -14,7 +13,6 @@ import Collection from './Collection';
 import ItemInfo from './ItemInfo';
 import SignIn from './SignIn';
 import ShoppingCart from './ShoppingCart';
-// import './App.scss';
 
 class App extends Component {
     constructor(props) {

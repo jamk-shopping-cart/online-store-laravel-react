@@ -63883,7 +63883,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import 'sass-loader';
 
 
 
@@ -63893,7 +63892,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import './App.scss';
+
 
 var App =
 /*#__PURE__*/

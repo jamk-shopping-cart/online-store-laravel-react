@@ -5,12 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
 </head>
@@ -25,22 +20,17 @@
             <a href="{{ route('register') }}">Register</a> @endif @endauth
         </div>
         @endif
-
-        
-      <div class="container-fluid d-flex">
-        <div class="row w-100 mx-auto">
-          <div class="col-12 title align-self-end text-center font-light">
-            <p class="animated fadeIn delay-0.5s">ShoeFlex</p>
-          </div>
-          <div class="col-12 subtitle align-self-center text-center font-bold animated fadeIn delay-1s">
-            <p>View Our Collection 2018</p>
-            <a href="/collection">
-              <i class="fas fa fa-chevron-down">
-            </a>
-          </div>
+        <div class="container-fluid d-flex">
+            <div class="row w-100 mx-auto">
+                <div class="col-12 title align-self-end text-center font-light">
+                    <p class="animated fadeIn delay-0.5s">ShoeFlex</p>
+                </div>
+                <div class="col-12 subtitle align-self-center text-center font-bold animated fadeIn delay-1s">
+                    <p>View Our Collection 2018</p>
+                    <a href="/collection"><i class="fas fa fa-chevron-down"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
-
     </div>
 </body>
 

@@ -21,7 +21,7 @@ sudo nano /etc/apache2/mods-enabled/php7.2.conf
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-2. nano /public_html/online-store-laravel-react/.en
+2. nano /public_html/online-store-laravel-react/.env
 -- muuta DB_DATABASE=oma db
 	DB_USERNAME=oman dbn käyttäjänimi
 	DB_PASSWORD=oman dbn salasana

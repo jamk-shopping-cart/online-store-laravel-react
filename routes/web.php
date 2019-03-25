@@ -11,10 +11,6 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Route::get('/collection', 'ItemsController@collection');
 // Route::get('/collection/{item}', 'ItemsController@item');
 

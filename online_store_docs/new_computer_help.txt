@@ -1,0 +1,38 @@
+LARAVELIN käytön avuksi:
+
+Jos täytyy käyttää uutta serverikonetta, ja on saatavilla vain git-repo
+laravellista.
+
+Uusi laravel ja database luotu
+create_database_ver1_eng.txt
+
+1.
+sudo nano /etc/apache2/mods-enabled/php7.2.conf
+-- Uusi virtualhost
+<VirtualHost *:Porttinumero>
+    ServerName localhost
+
+    ServerAdmin webmaster@localhost
+    DocumentRoot /home/testi/public_html/l5todo/public
+    <Directory /home/testi/public_html/l5todo>
+        AllowOverride All
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+2. nano /public_html/online-store-laravel-react/.env
+-- muuta DB_DATABASE=oma db
+	DB_USERNAME=oman dbn käyttäjänimi
+	DB_PASSWORD=oman dbn salasana
+2.
+composer update
+
+3.
+php artisan key:generate
+
+4.
+sudo systemctl restart apache2.service
+
+Jos mahdollista:
+git pull vain niihin kansioihin mitä käytät, jotta mikään ei mene rikki.

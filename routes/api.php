@@ -15,5 +15,9 @@
 //     return $request->user();
 // });
 
-Route::get('collection', 'ItemsController@collection');
-Route::get('collection/{item}', 'ItemsController@item');
+Route::get('collection', 'ItemsController@collection'); // GET /api/collection
+Route::get('collection/{item}', 'ItemsController@item'); // GET /api/collection/1
+
+// Route::get('orders', 'OrdersController@list');
+// Route::get('orders/{item}', 'OrdersController@item');
+// Route::post('orders', 'OrdersController@newOrder');

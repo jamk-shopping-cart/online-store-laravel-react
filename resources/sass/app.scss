@@ -79,7 +79,7 @@ body {
 
    a:hover {
      text-decoration: none;
-     color: #a5641f;
+     color: $darkorange-color;
    }
 
   .subtitle {
@@ -150,7 +150,7 @@ nav {
   }
 
   .fa-shopping-cart:hover ~ .circle {
-    color: #a5641f;
+    color: $darkorange-color;
   }
 
   .fa-shopping-cart,
@@ -163,16 +163,16 @@ nav {
   }
 
   .header:hover {
-    color: #a5641f;
+    color: $darkorange-color;
   }
 
   .fa-user:hover {
-    color: #a5641f;
+    color: $darkorange-color;
   }
 
   a:hover {
     text-decoration: none;
-    color: #a5641f;
+    color: $darkorange-color;
   }
   
   .circle {
@@ -356,7 +356,35 @@ nav {
   font-size: $font-size-5;
 }
 
+// style for login.blade.php
 #app a:hover {
   text-decoration: none;
-  color: #a5641f;
+  color: $darkorange-color;
+}
+
+#app .form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: $grey-color;
+}
+
+#app .custom-control-label:before{
+  background-color:white;
+}
+
+#app .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:darkblue;
+}
+
+#app .custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='orange' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+#app .custom-control-input:active~.custom-control-label::before{
+  background-color:darkblue;
+}
+
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
+//   box-shadow: 0 0 0 1px $white-color, 0 0 0 0.12rem $orange-color);
+  box-shadow: none; 
 }

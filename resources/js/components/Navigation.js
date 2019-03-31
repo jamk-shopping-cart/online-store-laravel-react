@@ -16,7 +16,7 @@ class Navigation extends Component {
             </div>
             <div className="col-8 col-md-6 col-lg-4 text-center">
               <Link to="collection" className="navbar-brand">
-                <span className="header">ShoeFlex</span>
+                <span className="header">Online Store</span>
               </Link>
             </div>
             <div className="col-2 text-center">

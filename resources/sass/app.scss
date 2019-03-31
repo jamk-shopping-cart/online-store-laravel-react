@@ -342,3 +342,16 @@ nav {
   padding-left: 1.5em;
 }
 
+// style for app.blade.php
+#app .navbar-brand,
+#app .nav-link {
+  color: $orange-color;
+}
+
+#app .navbar-brand {
+  font-size: $font-size-6;
+}
+
+#app .nav-link {
+  font-size: $font-size-5;
+}

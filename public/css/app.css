@@ -14647,3 +14647,17 @@ nav .circle {
 .Dropdown-placeholder {
   padding-left: 1.5em;
 }
+
+#app .navbar-brand,
+#app .nav-link {
+  color: #ff9628;
+}
+
+#app .navbar-brand {
+  font-size: 2.5em;
+}
+
+#app .nav-link {
+  font-size: 2em;
+}
+

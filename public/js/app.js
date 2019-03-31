@@ -64584,7 +64584,7 @@ function (_Component) {
           className: "navbar-brand"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "header"
-        }, "ShoeFlex"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Online Store"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-2 text-center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "cart",

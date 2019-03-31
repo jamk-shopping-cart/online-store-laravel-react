@@ -355,3 +355,8 @@ nav {
 #app .nav-link {
   font-size: $font-size-5;
 }
+
+#app a:hover {
+  text-decoration: none;
+  color: #a5641f;
+}

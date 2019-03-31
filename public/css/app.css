@@ -14661,3 +14661,8 @@ nav .circle {
   font-size: 2em;
 }
 
+#app a:hover {
+  text-decoration: none;
+  color: #a5641f;
+}
+

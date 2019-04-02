@@ -9,6 +9,14 @@ class OrderItemsController extends Controller
 {
     public function index($order_id)
     {
+        // orderItem <-->order<-->user
+        // TODO:
+        // Identify user ($user_id).
+        // Check if order belongs to the user:
+        // 1. Get order with $order_id from DB.
+        // 2. Check if order->user_id is the same as $user_id
+        // 3. Return error if its not.
+
         // $projects = Project::where('is_completed', false)
         //     ->orderBy('created_at', 'desc')
         //     ->withCount(['tasks' => function ($query) {

@@ -17,374 +17,373 @@
 @import 'node_modules/animate.css/animate.scss';
 
 @mixin tablet {
-  @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-min) {
-    @content;
-  }
+    @media (min-width: $screen-tablet-min) and (max-width: $screen-desktop-min) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media (min-width: $screen-desktop-min) {
-    @content;
-  }
+    @media (min-width: $screen-desktop-min) {
+        @content;
+    }
 }
 
 // general style for all components:
 body {
-  background-color: $white-color;
-  font-family: $font-family;
-  font-size: 100%;
+    background-color: $white-color;
+    font-family: $font-family;
+    font-size: 100%;
 
-  a {
-    color: $orange-color;
-  }
+    a {
+        color: $orange-color;
+    }
 
-  ul {
-    padding: 0;
-  }
+    ul {
+        padding: 0;
+    }
 
-  li {
-    list-style-type: none;
-  }
+    li {
+        list-style-type: none;
+    }
 
-  .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-  }
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0;
+    }
 }
 
 .max-width {
-  @include desktop {
-    max-width: $max-width;
-  }
+    @include desktop {
+        max-width: $max-width;
+    }
 }
 
 // style for StartPage, SignIn and Registration:
 .container-fluid {
-  background-color: $blue-color;
-  min-height: 100vh;
+    background-color: $blue-color;
+    min-height: 100vh;
 
-  .title {
-    color: $orange-color;
-    font-size: $font-size-7;
-    font-weight: $font-weight-light;
-    @include tablet {
-      font-size: $font-size-9;
-    }
-    @include desktop {
-      font-size: $font-size-9;
-    }
-  }
-
-   a:hover {
-     text-decoration: none;
-     color: $darkorange-color;
-   }
-
-  .subtitle {
-    font-weight: $font-weight-bold;
-    color: $white-color;
-    font-size: $font-size-4;
-    .fa-chevron-down {
-      color: $white-color;
-      font-size: $font-size-4;
-    }
-  }
-
-  .top-title {
-    font-weight: $font-weight-light;
-  }
-
-  .form {
-    input {
-      outline: none;
-      line-height: 2em;
-      &:invalid {
-        &:not(:placeholder-shown) {
-          border-color: $notvalid-color;
+    .title {
+        color: $orange-color;
+        font-size: $font-size-7;
+        font-weight: $font-weight-light;
+        @include tablet {
+            font-size: $font-size-9;
         }
-      }
-      &:valid {
-        &:not(:placeholder-shown) {
-          border-color: $valid-color;
+        @include desktop {
+            font-size: $font-size-9;
         }
-      }
     }
 
-    ::-webkit-input-placeholder,
-    ::-moz-placeholder,
-    :-ms-input-placeholder {
-      color: $grey-color;
-      font-size: $font-size-2;
+    a:hover {
+        text-decoration: none;
+        color: $darkorange-color;
     }
 
-    input[type='checkbox'] {
-      height: 0.75em;
-      width: 0.75em;
-      -webkit-transform: scale(2, 2);
-      -moz-transform: scale(2, 2);
-      -o-transform: scale(2, 2);
-      transform: scale(2, 2);
+    .subtitle {
+        font-weight: $font-weight-bold;
+        color: $white-color;
+        font-size: $font-size-4;
+        .fa-chevron-down {
+            color: $white-color;
+            font-size: $font-size-4;
+        }
     }
 
-    label {
-      color: $grey-color;
+    .top-title {
+        font-weight: $font-weight-light;
     }
-  }
 
-  .login {
-    color: $orange-color;
-    font-size: $font-size-6;
-    font-weight: $font-weight-bold;
-  }
+    .form {
+        input {
+            outline: none;
+            line-height: 2em;
+            &:invalid {
+                &:not(:placeholder-shown) {
+                    border-color: $notvalid-color;
+                }
+            }
+            &:valid {
+                &:not(:placeholder-shown) {
+                    border-color: $valid-color;
+                }
+            }
+        }
+
+        ::-webkit-input-placeholder,
+        ::-moz-placeholder,
+        :-ms-input-placeholder {
+            color: $grey-color;
+            font-size: $font-size-2;
+        }
+
+        input[type='checkbox'] {
+            height: 0.75em;
+            width: 0.75em;
+            -webkit-transform: scale(2, 2);
+            -moz-transform: scale(2, 2);
+            -o-transform: scale(2, 2);
+            transform: scale(2, 2);
+        }
+
+        label {
+            color: $grey-color;
+        }
+    }
+
+    .login {
+        color: $orange-color;
+        font-size: $font-size-6;
+        font-weight: $font-weight-bold;
+    }
 }
 
 // style for Navigation and Counter:
 nav {
-  background-color: $blue-color;
-  font-weight: $font-weight-light;
-
-  .fa-shopping-cart {
-    position: relative;
-  }
-
-  .fa-shopping-cart:hover ~ .circle {
-    color: $darkorange-color;
-  }
-
-  .fa-shopping-cart,
-  .fa-user {
-    font-size: $font-size-5;
-  }
-
-  .header {
-    font-size: $font-size-6;
-  }
-
-  .header:hover {
-    color: $darkorange-color;
-  }
-
-  .fa-user:hover {
-    color: $darkorange-color;
-  }
-
-  a:hover {
-    text-decoration: none;
-    color: $darkorange-color;
-  }
-  
-  .circle {
-    border: 0.12em solid $orange-color;
     background-color: $blue-color;
-    color: $orange-color;
-    font-family: $font-family;
-    font-size: $font-size-circle;
-    font-weight: $font-weight-bold;
-    width: 26px !important;
-    height: 26px !important;
-    position: absolute;
-    top: -0.6em;
-    right: 0;
-    z-index: 1;
-    animation-duration: 0.5s;
-    @include desktop {
-      top: -0.8em;
-      right: -1.5em;
+    font-weight: $font-weight-light;
+
+    .fa-shopping-cart {
+        position: relative;
     }
-  }
+
+    .fa-shopping-cart:hover ~ .circle {
+        color: $darkorange-color;
+    }
+
+    .fa-shopping-cart,
+    .fa-user {
+        font-size: $font-size-5;
+    }
+
+    .header {
+        font-size: $font-size-6;
+    }
+
+    .header:hover {
+        color: $darkorange-color;
+    }
+
+    .fa-user:hover {
+        color: $darkorange-color;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: $darkorange-color;
+    }
+
+    .circle {
+        border: 0.12em solid $orange-color;
+        background-color: $blue-color;
+        color: $orange-color;
+        font-family: $font-family;
+        font-size: $font-size-circle;
+        font-weight: $font-weight-bold;
+        width: 26px !important;
+        height: 26px !important;
+        position: absolute;
+        top: -0.6em;
+        right: 0;
+        z-index: 1;
+        animation-duration: 0.5s;
+        @include desktop {
+            top: -0.8em;
+            right: -1.5em;
+        }
+    }
 }
 
 // style for Collection:
 .top {
-  margin-top: 6em;
+    margin-top: 6em;
 }
 
 .pulse {
-  font-size: $font-size-7;
-  font-weight: $font-weight-normal;
+    font-size: $font-size-7;
+    font-weight: $font-weight-normal;
 }
-
 
 // style for Item:
 .model {
-  font-weight: $font-weight-normal;
-  font-size: $font-size-5;
+    font-weight: $font-weight-normal;
+    font-size: $font-size-5;
 }
 
 .price {
-  font-weight: $font-weight-normal;
-  font-size: $font-size-4;
-  @include tablet {
-    font-size: $font-size-5;
-  }
-  @include desktop {
-    font-size: $font-size-9;
-  }
+    font-weight: $font-weight-normal;
+    font-size: $font-size-4;
+    @include tablet {
+        font-size: $font-size-5;
+    }
+    @include desktop {
+        font-size: $font-size-9;
+    }
 }
 
 // style for ItemInfo:
 .feature {
-  font-weight: $font-weight-highbold;
-  @include tablet {
-    font-size: $font-size-3;
-  }
+    font-weight: $font-weight-highbold;
+    @include tablet {
+        font-size: $font-size-3;
+    }
 }
 
 .total {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-4;
-  @include tablet {
-    font-size: $font-size-5;
-  }
+    font-weight: $font-weight-bold;
+    font-size: $font-size-4;
+    @include tablet {
+        font-size: $font-size-5;
+    }
 }
 
 .description {
-  font-size: $font-size-3;
+    font-size: $font-size-3;
 }
 
 .fa-cart-plus {
-  background-color: $blue-color;
-  color: $orange-color;
+    background-color: $blue-color;
+    color: $orange-color;
 }
 
 .imgWidth {
-  width: $imgsize;
-  @include tablet {
-    width: $imgsize-tablet;
-  }
-  @include desktop {
-    width: $imgsize-desktop;
-  }
+    width: $imgsize;
+    @include tablet {
+        width: $imgsize-tablet;
+    }
+    @include desktop {
+        width: $imgsize-desktop;
+    }
 }
 
 .marginLg {
-  @include tablet {
-    margin-left: 8em !important;
-    margin-right: 8em !important;
-  }
-  @include desktop {
-    margin-left: 8em !important;
-    margin-right: 8em !important;
-  }
+    @include tablet {
+        margin-left: 8em !important;
+        margin-right: 8em !important;
+    }
+    @include desktop {
+        margin-left: 8em !important;
+        margin-right: 8em !important;
+    }
 }
 
 .priceMargin {
-  @include tablet {
-    margin-right: 5em;
-  }
-  @include desktop {
-    margin-right: 5em;
-  }
+    @include tablet {
+        margin-right: 5em;
+    }
+    @include desktop {
+        margin-right: 5em;
+    }
 }
 
 .addBtn {
-  background-color: $blue-color;
-  color: $orange-color;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  padding: 0.7em 1em;
-  display: none;
-  @include desktop {
-    display: block;
-    margin-left: 1em;
-  }
+    background-color: $blue-color;
+    color: $orange-color;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 0.7em 1em;
+    display: none;
+    @include desktop {
+        display: block;
+        margin-left: 1em;
+    }
 }
 
 .addBtn:active {
-  transform: translateY(1px);
+    transform: translateY(1px);
 }
 
 .addIcon {
-  display: block;
-  @include desktop {
-    display: none;
-  }
+    display: block;
+    @include desktop {
+        display: none;
+    }
 }
 
 // style for ShoppingCart:
 .top {
-  margin-top: 6em;
+    margin-top: 6em;
 }
 
 .fa-times-circle {
-  position: absolute;
-  right: 1em;
-  z-index: 1;
+    position: absolute;
+    right: 1em;
+    z-index: 1;
 }
 
 .btn {
-  background-color: $blue-color;
-  color: $orange-color;
+    background-color: $blue-color;
+    color: $orange-color;
 }
 
 // style for List:
 .Dropdown-root {
-  display: inline-block;
-  margin-left: 4em;
-  @include desktop {
-    margin-left: 0;
-  }
+    display: inline-block;
+    margin-left: 4em;
+    @include desktop {
+        margin-left: 0;
+    }
 }
 
 .Dropdown-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  width: 5em;
-  height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    width: 5em;
+    height: 3em;
 }
 
 .Dropdown-placeholder {
-  padding-left: 1.5em;
+    padding-left: 1.5em;
 }
 
 // style for app.blade.php
 #app .navbar-brand,
 #app .nav-link {
-  color: $orange-color;
+    color: $orange-color;
 }
 
 #app .navbar-brand {
-  font-size: $font-size-6;
+    font-size: $font-size-6;
 }
 
 #app .nav-link {
-  font-size: $font-size-5;
+    font-size: $font-size-5;
 }
 
 // style for login.blade.php
 #app a:hover {
-  text-decoration: none;
-  color: $darkorange-color;
+    text-decoration: none;
+    color: $darkorange-color;
 }
 
 #app .form-control:focus {
-  outline: none;
-  box-shadow: none;
-  border-color: $grey-color;
+    outline: none;
+    box-shadow: none;
+    border-color: $grey-color;
 }
 
-#app .custom-control-label:before{
-  background-color:white;
+#app .custom-control-label:before {
+    background-color: white;
 }
 
-#app .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-  background-color:darkblue;
+#app .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: $blue-color;
 }
 
-#app .custom-checkbox .custom-control-input:checked~.custom-control-label::after{
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='orange' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+#app .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='orange' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
 }
 
-#app .custom-control-input:active~.custom-control-label::before{
-  background-color:darkblue;
+#app .custom-control-input:active ~ .custom-control-label::before {
+    background-color: $blue-color;
 }
 
-.custom-checkbox .custom-control-input:focus~.custom-control-label::before{
-//   box-shadow: 0 0 0 1px $white-color, 0 0 0 0.12rem $orange-color);
-  box-shadow: none; 
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    //   box-shadow: 0 0 0 1px $white-color, 0 0 0 0.12rem $orange-color);
+    box-shadow: none;
 }

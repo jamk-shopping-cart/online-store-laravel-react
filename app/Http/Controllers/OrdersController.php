@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
-    public function index()
+    // GET /api/orders
+    public function index(Request $request)
     {
-        $orders = Orders::all();
+        $user_id = $request->user_id; //Auth::id();
+        if (!isset($user_id)) {
+            return response()->json('User has to be authenticated');
+        }
+        $orders = Orders::where('user_id', $user_id)->get();
         return $orders->toJson();
     }
 
+    // POST /api/orders
     public function store(Request $request)
     {
         // $validatedData = $request->validate([
@@ -20,16 +26,32 @@ class OrdersController extends Controller
         //   'description' => 'required',
         // ]);
 
-        // TODO: use session to get user id.
+        $user_id = $request->user_id; //Auth::id();
+        if (!isset($user_id)) {
+            return response()->json('User has to authenticated!');
+        }
         $order = Orders::create([
-            'user_id' => '1',
+            'user_id' => $user_id,
         ]);
         return response()->json(['message' => 'Order created!', 'order_id' => $order->id]);
     }
 
-    public function show($id)
+    // GET /api/orders/{id}
+    public function show($id, Request $request)
     {
+        $user_id = $request->user_id; //Auth::id();
+        if (!isset($user_id)) {
+            return response()->json('User has to authenticated!');
+        }
+        // SELECT * FROM orders WHERE user_id=$user_id AND id=$id
+        // $order = Orders::where('user_id', $user_id)->find($id);
         $order = Orders::find($id);
+        if (!$order) {
+            return response()->json('No order with this id!');
+        }
+        if ($order->user_id != $user_id) {
+            return response()->json('Sorry, this is not your order!');
+        }
         return $order->toJson();
     }
 }

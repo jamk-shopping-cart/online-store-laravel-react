@@ -11,7 +11,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
         $user_id = $request->user_id; //Auth::id();
-        if (!isset($user_id)) {
+        if (!$user_id) {
             return response()->json('User has to be authenticated');
         }
         $orders = Orders::where('user_id', $user_id)->get();
@@ -27,7 +27,7 @@ class OrdersController extends Controller
         // ]);
 
         $user_id = $request->user_id; //Auth::id();
-        if (!isset($user_id)) {
+        if (!$user_id) {
             return response()->json('User has to authenticated!');
         }
         $order = Orders::create([
@@ -37,10 +37,10 @@ class OrdersController extends Controller
     }
 
     // GET /api/orders/{id}
-    public function show($id, Request $request)
+    public function show(Request $request, $id)
     {
         $user_id = $request->user_id; //Auth::id();
-        if (!isset($user_id)) {
+        if (!$user_id) {
             return response()->json('User has to authenticated!');
         }
         // SELECT * FROM orders WHERE user_id=$user_id AND id=$id

@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App;
+use App\Items;
 
 class ItemsController extends Controller
 {
     public function collection()
     {
-        $items = App\Items::all();
+        $items = Items::paginate(3);
+        // $items = Items::all();
         // return view('items/collection', compact('items'));
         return $items->toJson();
     }
     public function item($id)
     {
-        $item = App\Items::find($id);
+        $item = Items::find($id);
         // return view('items/item', compact('item'));
         return $item->toJson();
     }

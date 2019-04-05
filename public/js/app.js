@@ -64455,23 +64455,47 @@ function (_Component) {
       isLoaded: false,
       items: []
     };
+    _this.page = 1;
+    _this.hasNext = true;
+    _this.hasPrev = true;
+
+    _this.showNext = function (event) {
+      event.preventDefault();
+      _this.page += 1;
+
+      _this.loadPage();
+
+      console.log('Next page=' + _this.page);
+    };
+
+    _this.showPrev = function (event) {
+      event.preventDefault();
+      _this.page -= 1;
+
+      _this.loadPage();
+
+      console.log('Prev page=' + _this.page);
+    };
+
     return _this;
   }
 
   _createClass(ItemList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "loadPage",
+    value: function loadPage() {
       var _this2 = this;
 
-      // fetch('https://5bf089690756d2001311987d.mockapi.io/shoes')
-      fetch('/api/collection').then(function (res) {
+      // var name = 'Dima'
+      // concatenation:  'hello ' + name + '!'
+      // interpolation:  `hello ${name}!`
+      fetch("/api/collection?page=".concat(this.page)).then(function (res) {
         return res.json();
       }).then(function (result) {
         console.log('result:', result);
 
         _this2.setState({
           isLoaded: true,
-          items: result
+          items: result.data
         });
       }, function (error) {
         _this2.setState({
@@ -64479,6 +64503,12 @@ function (_Component) {
           error: error
         });
       });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // fetch('https://5bf089690756d2001311987d.mockapi.io/shoes')
+      this.loadPage();
     }
   }, {
     key: "render",
@@ -64495,7 +64525,7 @@ function (_Component) {
       } else if (!isLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, items.map(function (item, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, items.map(function (item, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: item.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -64503,7 +64533,11 @@ function (_Component) {
             item: item,
             callback: callback
           }));
-        }));
+        })), this.hasPrev && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showPrev
+        }, "Previous"), this.hasNext && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showNext
+        }, "Next"));
       }
     }
   }]);

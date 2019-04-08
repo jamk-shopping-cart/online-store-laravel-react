@@ -28,8 +28,9 @@ class App extends Component {
         const count = Number(window.localStorage.getItem('count') || 0);
         const item = JSON.parse(window.localStorage.getItem('item') || 'null');
         const cart = JSON.parse(window.localStorage.getItem('cart') || '{}');
+        const orderId = null;  // after login load order if it exists
         this.setItem = this.setItem.bind(this);
-        this.state = { item, count, cart };
+        this.state = { item, count, cart, orderId };
     }
 
     setItem(item) {
@@ -38,7 +39,36 @@ class App extends Component {
         window.localStorage.setItem('item', JSON.stringify(item));
     }
 
+    createOrder() {
+        return fetch(`/api/orders`, { method: 'POST' })
+            .then(res => res.json())
+            .then(result => {
+                if (result.isError) {
+                    console.log(`Error! Can not create order: ${result.message}`);
+                    throw Error(`Server error: ${result.message}`);
+                } else {
+                    console.log(`Order saved. Response message: ${result.message}`);
+                    this.setState({orderId: result.order_id});
+                    return result.order_id;
+                }
+            });
+    }
+
+    checkOrderAndAddItemToCart(item, size) {
+        if (this.state.orderId == null) {
+            this.createOrder()
+                .then(() => this.addItemToCart(item, size))
+                .catch(err => console.log(`Sorry, error: `, err));
+        } else {
+            this.addItemToCart(item, size);
+        }
+    }
+
     addItemToCart(item, size) {
+        if (!this.state.orderId) {
+            console.log(`You have to create order first.`);
+            return;
+        }
         // console.log(`app.addItemToCart: added to cart`);
         const count = this.state.count + 1;
         this.setState({ count });
@@ -62,6 +92,27 @@ class App extends Component {
         window.localStorage.setItem('cart', JSON.stringify(cart));
         // console.log(`app.updateCart: cart`, cart);
         // console.log(`app.updateCart: itemStored`, itemStored);
+
+        // Save to DB:
+        const orderId = this.state.orderId;
+        const data = {
+            order_id: orderId,
+            item_id: item.id,
+            quantity: itemStored.count,
+            size: itemStored.size
+        }
+        fetch(`/api/orders/${orderId}/items`, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
+            .then(result => {
+                if (result.isError) {
+                    console.log(`Error! Can not save item to DB: ${result.message}`);
+                } else {
+                    console.log(`Saved item to DB: `, result);
+                }
+            })
+            //.catch(err => console.log(`Sorry, error: `, err));
     }
 
     render() {
@@ -80,7 +131,7 @@ class App extends Component {
                     path="/iteminfo"
                     component={ItemInfo}
                     item={this.state.item}
-                    callback={this.addItemToCart.bind(this)}
+                    callback={this.checkOrderAndAddItemToCart.bind(this)}
                     count={this.state.count}
                 />
                 <Route

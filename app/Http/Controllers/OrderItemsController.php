@@ -11,11 +11,11 @@ function isMyOrder($request, $order_id)
     // orderItem <-->order<-->user
     $user_id = $request->user_id; //Auth::id();
     if (!$user_id) {
-        return 'User has to be authenticated';
+        return ['isError' => true, 'message' => 'User has to be authenticated'];
     }
     $order = Orders::find($order_id);
     if ($order->user_id != $user_id) {
-        return 'Sorry, this is not your order.';
+        return ['isError' => true, 'message' => 'Sorry, this is not your order'];
     }
     return 'OK';
 }

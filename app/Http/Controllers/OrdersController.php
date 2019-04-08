@@ -12,7 +12,7 @@ class OrdersController extends Controller
     {
         $user_id = $request->user_id; //Auth::id();
         if (!$user_id) {
-            return response()->json('User has to be authenticated');
+            return response()->json(['isError' => true, 'message' => 'User has to be authenticated']);
         }
         $orders = Orders::where('user_id', $user_id)->get();
         return $orders->toJson();
@@ -28,7 +28,7 @@ class OrdersController extends Controller
 
         $user_id = $request->user_id; //Auth::id();
         if (!$user_id) {
-            return response()->json('User has to authenticated!');
+            return response()->json(['isError' => true, 'message' => 'User has to be authenticated']);
         }
         $order = Orders::create([
             'user_id' => $user_id,
@@ -41,7 +41,7 @@ class OrdersController extends Controller
     {
         $user_id = $request->user_id; //Auth::id();
         if (!$user_id) {
-            return response()->json('User has to authenticated!');
+            return response()->json(['isError' => true, 'message' => 'User has to be authenticated']);
         }
         // SELECT * FROM orders WHERE user_id=$user_id AND id=$id
         // $order = Orders::where('user_id', $user_id)->find($id);

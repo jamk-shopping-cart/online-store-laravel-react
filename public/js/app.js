@@ -63917,11 +63917,14 @@ function (_Component) {
     var count = Number(window.localStorage.getItem('count') || 0);
     var item = JSON.parse(window.localStorage.getItem('item') || 'null');
     var cart = JSON.parse(window.localStorage.getItem('cart') || '{}');
+    var orderId = null; // after login load order if it exists
+
     _this.setItem = _this.setItem.bind(_assertThisInitialized(_this));
     _this.state = {
       item: item,
       count: count,
-      cart: cart
+      cart: cart,
+      orderId: orderId
     };
     return _this;
   }
@@ -63936,9 +63939,53 @@ function (_Component) {
       window.localStorage.setItem('item', JSON.stringify(item));
     }
   }, {
+    key: "createOrder",
+    value: function createOrder() {
+      var _this2 = this;
+
+      return fetch("/api/orders", {
+        method: 'POST'
+      }).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        if (result.isError) {
+          console.log("Error! Can not create order: ".concat(result.message));
+          throw Error("Server error: ".concat(result.message));
+        } else {
+          console.log("Order saved. Response message: ".concat(result.message));
+
+          _this2.setState({
+            orderId: result.order_id
+          });
+
+          return result.order_id;
+        }
+      });
+    }
+  }, {
+    key: "checkOrderAndAddItemToCart",
+    value: function checkOrderAndAddItemToCart(item, size) {
+      var _this3 = this;
+
+      if (this.state.orderId == null) {
+        this.createOrder().then(function () {
+          return _this3.addItemToCart(item, size);
+        }).catch(function (err) {
+          return console.log("Sorry, error: ", err);
+        });
+      }
+
+      this.addItemToCart(item, size);
+    }
+  }, {
     key: "addItemToCart",
     value: function addItemToCart(item, size) {
-      // console.log(`app.addItemToCart: added to cart`);
+      if (!this.state.orderId) {
+        console.log("You have to create order first.");
+        return;
+      } // console.log(`app.addItemToCart: added to cart`);
+
+
       var count = this.state.count + 1;
       this.setState({
         count: count
@@ -63965,6 +64012,25 @@ function (_Component) {
       });
       window.localStorage.setItem('cart', JSON.stringify(cart)); // console.log(`app.updateCart: cart`, cart);
       // console.log(`app.updateCart: itemStored`, itemStored);
+      // Save to DB:
+
+      var orderId = this.state.orderId;
+      var data = {
+        order_id: orderId,
+        item_id: item.id,
+        quantity: itemStored.count,
+        size: itemStored.size
+      };
+      fetch("/api/orders/".concat(orderId, "/items"), {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }).then(function (result) {
+        if (result.isError) {
+          console.log("Error! Can not save item to DB: ".concat(result.message));
+        } else {
+          console.log("Saved item to DB: ", result);
+        }
+      }); //.catch(err => console.log(`Sorry, error: `, err));
     }
   }, {
     key: "render",
@@ -63988,7 +64054,7 @@ function (_Component) {
         path: "/iteminfo",
         component: _ItemInfo__WEBPACK_IMPORTED_MODULE_11__["default"],
         item: this.state.item,
-        callback: this.addItemToCart.bind(this),
+        callback: this.checkOrderAndAddItemToCart.bind(this),
         count: this.state.count
       }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_7__["Route"], {
         path: "/cart",
@@ -64463,18 +64529,16 @@ function (_Component) {
       event.preventDefault();
       _this.page += 1;
 
-      _this.loadPage();
+      _this.loadPage(); // console.log('Next page=' + this.page)
 
-      console.log('Next page=' + _this.page);
     };
 
     _this.showPrev = function (event) {
       event.preventDefault();
       _this.page -= 1;
 
-      _this.loadPage();
+      _this.loadPage(); // console.log('Prev page=' + this.page);
 
-      console.log('Prev page=' + _this.page);
     };
 
     return _this;
@@ -64485,9 +64549,8 @@ function (_Component) {
     value: function loadPage() {
       var _this2 = this;
 
-      // var name = 'Dima'
-      // concatenation:  'hello ' + name + '!'
-      // interpolation:  `hello ${name}!`
+      // concatenation:  'hello ' + variable + '!'
+      // interpolation:  `hello ${variable}!`
       fetch("/api/collection?page=".concat(this.page)).then(function (res) {
         return res.json();
       }).then(function (result) {

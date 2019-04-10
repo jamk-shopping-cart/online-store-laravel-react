@@ -63926,6 +63926,7 @@ function (_Component) {
       cart: cart,
       orderId: orderId
     };
+    _this.token = window.apiToken;
     return _this;
   }
 
@@ -63943,7 +63944,7 @@ function (_Component) {
     value: function createOrder() {
       var _this2 = this;
 
-      return fetch("/api/orders", {
+      return fetch("/api/orders?api_token=".concat(this.token), {
         method: 'POST'
       }).then(function (res) {
         return res.json();
@@ -63973,9 +63974,9 @@ function (_Component) {
         }).catch(function (err) {
           return console.log("Sorry, error: ", err);
         });
+      } else {
+        this.addItemToCart(item, size);
       }
-
-      this.addItemToCart(item, size);
     }
   }, {
     key: "addItemToCart",
@@ -64021,9 +64022,12 @@ function (_Component) {
         quantity: itemStored.count,
         size: itemStored.size
       };
-      fetch("/api/orders/".concat(orderId, "/items"), {
+      fetch("/api/orders/".concat(orderId, "/items?api_token=").concat(this.token), {
         method: 'POST',
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
       }).then(function (result) {
         if (result.isError) {
           console.log("Error! Can not save item to DB: ".concat(result.message));

@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\OrderItems;
 use App\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 function isMyOrder($request, $order_id)
 {
     // orderItem <-->order<-->user
-    $user_id = $request->user_id; //Auth::id();
-    if (!$user_id) {
+    // $user_id = $request->user_id; //Auth::id();
+    $user = Auth::guard('api')->user();
+    if (!$user) {
         return ['isError' => true, 'message' => 'User has to be authenticated'];
     }
     $order = Orders::find($order_id);
-    if ($order->user_id != $user_id) {
+    if ($order->user_id != $user->id) {
         return ['isError' => true, 'message' => 'Sorry, this is not your order'];
     }
     return 'OK';

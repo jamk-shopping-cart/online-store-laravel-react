@@ -31,6 +31,7 @@ class App extends Component {
         const orderId = null;  // after login load order if it exists
         this.setItem = this.setItem.bind(this);
         this.state = { item, count, cart, orderId };
+        this.token = window.apiToken;
     }
 
     setItem(item) {
@@ -40,7 +41,7 @@ class App extends Component {
     }
 
     createOrder() {
-        return fetch(`/api/orders`, { method: 'POST' })
+        return fetch(`/api/orders?api_token=${this.token}`, { method: 'POST' })
             .then(res => res.json())
             .then(result => {
                 if (result.isError) {
@@ -101,9 +102,12 @@ class App extends Component {
             quantity: itemStored.count,
             size: itemStored.size
         }
-        fetch(`/api/orders/${orderId}/items`, {
+        fetch(`/api/orders/${orderId}/items?api_token=${this.token}`, {
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
             .then(result => {
                 if (result.isError) {

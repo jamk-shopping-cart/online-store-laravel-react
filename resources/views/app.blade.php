@@ -14,6 +14,9 @@
 
 <body>
     <div id="root"></div>
+    <script>
+        window.apiToken = "{{ $apiToken }}";
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

@@ -49,7 +49,7 @@ class OrderItemsController extends Controller
             'quantity' => $request->input('quantity'),
             'size' => $request->input('size'),
         ]);
-        return response()->json(['message' => 'Order item created!', 'orderItem' => $orderItem->toJson()]);
+        return response()->json(['message' => 'Order item created!', 'orderItem' => $orderItem]);
     }
 
     // GET /api/orders/{order_id}/items/{id}

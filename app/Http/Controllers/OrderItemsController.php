@@ -43,12 +43,22 @@ class OrderItemsController extends Controller
         if ($isError != 'OK') {
             return response()->json($isError);
         }
-        $orderItem = OrderItems::create([
-            'order_id' => $order_id,
-            'item_id' => $request->input('item_id'),
-            'quantity' => $request->input('quantity'),
-            'size' => $request->input('size'),
-        ]);
+        if ($request->input('id')) {
+            $id = $request->input('id');
+            $orderItem = OrderItems::whereId($id)->update([
+                // 'order_id' => $order_id,
+                // 'item_id' => $request->input('item_id'),
+                'quantity' => $request->input('quantity'),
+                'size' => $request->input('size'),
+            ]);
+        } else {
+            $orderItem = OrderItems::create([
+                'order_id' => $order_id,
+                'item_id' => $request->input('item_id'),
+                'quantity' => $request->input('quantity'),
+                'size' => $request->input('size'),
+            ]);
+        }
         return response()->json(['message' => 'Order item created!', 'orderItem' => $orderItem]);
     }
 

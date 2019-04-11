@@ -14,6 +14,12 @@ import ItemInfo from './ItemInfo';
 import SignIn from './SignIn';
 import ShoppingCart from './ShoppingCart';
 
+// Save/update cart in localstorage:
+// Ex: saveToLocalstorage('cart', {1:{...}});
+function saveToLocalstorage(name, value) {
+    window.localStorage.setItem(name, JSON.stringify(value));
+}
+
 class App extends Component {
     constructor(props) {
         // console.log('item: ' + window.localStorage.getItem('item'));
@@ -37,7 +43,8 @@ class App extends Component {
     setItem(item) {
         // console.log(`app.setItem: ${item.model}`, item);
         this.setState({ item });
-        window.localStorage.setItem('item', JSON.stringify(item));
+        saveToLocalstorage('item', item);
+        //window.localStorage.setItem('item', JSON.stringify(item));
     }
 
     createOrder() {
@@ -74,7 +81,8 @@ class App extends Component {
         const count = this.state.count + 1;
         this.setState({ count });
         this.updateCart(item, size);
-        window.localStorage.setItem('count', count);
+        saveToLocalstorage('count', count);
+        // window.localStorage.setItem('count', count);
     }
 
     updateCart(item, size) {
@@ -83,25 +91,32 @@ class App extends Component {
         const minSize = 38;
         const maxSize = 47;
         const itemStored = cart[item.id] || {
+            orderItemId: '',
             item,
             count: 0,
             size: isNaN(size) ? Math.round(Math.random() * (maxSize - minSize) + minSize) : size
         };
         itemStored.count++;
+        // Cart is an object: {`item.id1`: {orderItemId, item, size, count}, `item.id2`: {orderItemId, item, size, count},... }
         cart[item.id] = itemStored;
         this.setState({ cart });
-        window.localStorage.setItem('cart', JSON.stringify(cart));
+        saveToLocalstorage('cart', cart);
+        // window.localStorage.setItem('cart', JSON.stringify(cart));
         // console.log(`app.updateCart: cart`, cart);
         // console.log(`app.updateCart: itemStored`, itemStored);
 
-        // Save to DB:
+        // Prepare to save to DB:
         const orderId = this.state.orderId;
         const data = {
+            id: itemStored.orderItemId, // for a new item this `id` will be empty, for existing it will be `orderItemId`.
             order_id: orderId,
             item_id: item.id,
             quantity: itemStored.count,
             size: itemStored.size
         }
+
+        // Create item in DB:
+        // fetch(`/api/orders/${orderId}/items/${orderItemId}?api_token=${this.token}`, {...})
         fetch(`/api/orders/${orderId}/items?api_token=${this.token}`, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -109,11 +124,21 @@ class App extends Component {
                 "Content-Type": "application/json"
             }
         })
+            .then(res => res.json())
             .then(result => {
+                // Check errors:
                 if (result.isError) {
                     console.log(`Error! Can not save item to DB: ${result.message}`);
                 } else {
                     console.log(`Saved item to DB: `, result);
+                    const cart = this.state.cart;
+                    const cartItem = cart[item.id];
+                    // If this was a new item, we save order item id in our cart:
+                    if (!cartItem.orderItemId) {
+                        cartItem.orderItemId = result.orderItem.id;
+                        console.log(`Saving to cart: result.orderItem.id=${result.orderItem.id}, cartItem=, cart=`, cartItem, cart);
+                        saveToLocalstorage('cart', cart);
+                    }
                 }
             })
             //.catch(err => console.log(`Sorry, error: `, err));

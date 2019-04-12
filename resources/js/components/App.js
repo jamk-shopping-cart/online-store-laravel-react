@@ -170,6 +170,7 @@ class App extends Component {
                     size={this.state.size}
                     count={this.state.count}
                 />
+                <Route path="/checkout" component={Checkout} cart={this.state.cart} />
             </div>
         );
     }

@@ -23,6 +23,18 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // DB::table('users')->insert(
+        //     array(
+        //         'name' => 'Dmitry',
+        //         'email' => 'dm.sklyarov@icloud.com',
+        //         'email_verified_at' => null,
+        //         'password' => '?',
+        //         'api_token' => '?',
+        //         'created_at' => '2019-04-01 00:00:00',
+        //         'updated_at' => '2019-04-01 00:00:00',
+        //     )
+        // );
     }
 
     /**

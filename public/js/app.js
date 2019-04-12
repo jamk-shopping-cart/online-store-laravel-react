@@ -64036,6 +64036,12 @@ function (_Component) {
         quantity: itemStored.count,
         size: itemStored.size // Create item in DB:
         // fetch(`/api/orders/${orderId}/items/${orderItemId}?api_token=${this.token}`, {...})
+        // Items (products) -> item.id
+        // Orders -> order.id
+        // OrderItems -> orderItem.id, orderItem.orderId, orderItem.itemId
+        // 2 cases:
+        // 1. Create a new item (item does not exist in DB, so there is no orderItemId)
+        // 2. Update existing item (we know orderItemId).
 
       };
       fetch("/api/orders/".concat(orderId, "/items?api_token=").concat(this.token), {
@@ -64066,7 +64072,11 @@ function (_Component) {
   }, {
     key: "submitOrder",
     value: function submitOrder(paymentDetails) {
-      console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails); // fetch(...)
+      console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails); // TODO:
+      // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
+      // POST /orders
+      // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
+      // fetch(...)
     }
   }, {
     key: "render",

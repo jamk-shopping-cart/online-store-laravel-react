@@ -147,6 +147,11 @@ class App extends Component {
 
     submitOrder(paymentDetails) {
         console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails);
+        // TODO:
+        // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
+        // POST /orders
+        // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
+
         // fetch(...)
     }
 

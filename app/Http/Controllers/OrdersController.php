@@ -22,6 +22,9 @@ class OrdersController extends Controller
     }
 
     // POST /api/orders
+    // Creates a new order OR updateds an existing order (with payment information).
+    // TODO:
+    // If request has orderId and payment info then update existing order and complete it.
     public function store(Request $request)
     {
         // $validatedData = $request->validate([

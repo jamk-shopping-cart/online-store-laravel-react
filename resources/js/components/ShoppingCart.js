@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation';
+import { Link } from './Router';
 
 class ShoppingCart extends Component {
   totalPriceItem(id) {
@@ -73,9 +74,12 @@ class ShoppingCart extends Component {
               <span className="feature float-right">€10</span>
             </div>
             <div className="col-12 mt-4 text-center animated fadeIn delay-1s">
-              <button type="button" className="btn">
+              {/* <button type="button" className="btn">
                 Continue to Pay
-              </button>
+              </button> */}
+                <Link to="checkout">
+                    Continue to Pay
+                </Link>
             </div>
           </div>
         </React.Fragment>

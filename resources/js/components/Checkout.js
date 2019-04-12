@@ -15,11 +15,25 @@ class Checkout extends Component {
         return delivery;
     }
 
+    handleSubmit () {
+        const paymentDetails = {name: 'test'};
+        this.props.callback(paymentDetails);
+    }
+
     render() {
         return (
             <React.Fragment>
                 <Navigation count={this.props.count} />
                 <div className="container-full top text-center">Shopping cart is empty now.</div>
+                <span className="total float-right">Your shopping cart price: €{this.totalPriceCart(this.props.cart)}</span>
+                <span className="total float-right">Delivery price: €{this.toDelivery()}</span>
+                <span className="total float-right">Total: €{this.totalPriceCart(this.props.cart) + this.toDelivery()}</span>
+                <p>Please enter your payment details:</p>
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                    <p> Credit card number: <input type="text" /></p>
+                    <p> Address: <input type="text" /></p>
+                    <button type="submit">Submit order!</button>
+                </form>
             </React.Fragment>
         );
     }

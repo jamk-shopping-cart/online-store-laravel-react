@@ -13,6 +13,7 @@ import Collection from './Collection';
 import ItemInfo from './ItemInfo';
 import SignIn from './SignIn';
 import ShoppingCart from './ShoppingCart';
+import Checkout from './Checkout';
 
 // Save/update cart in localstorage:
 // Ex: saveToLocalstorage('cart', {1:{...}});
@@ -144,6 +145,12 @@ class App extends Component {
             //.catch(err => console.log(`Sorry, error: `, err));
     }
 
+    submitOrder(paymentDetails) {
+        event.preventDefault();
+        console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails);
+        // fetch(...)
+    }
+
     render() {
         return (
             <div>
@@ -170,7 +177,11 @@ class App extends Component {
                     size={this.state.size}
                     count={this.state.count}
                 />
-                <Route path="/checkout" component={Checkout} cart={this.state.cart} />
+                <Route path="/checkout"
+                    component={Checkout}
+                    cart={this.state.cart}
+                    callback={this.submitOrder.bind(this)}
+                />
             </div>
         );
     }

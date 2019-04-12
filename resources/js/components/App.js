@@ -146,7 +146,6 @@ class App extends Component {
     }
 
     submitOrder(paymentDetails) {
-        event.preventDefault();
         console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails);
         // fetch(...)
     }

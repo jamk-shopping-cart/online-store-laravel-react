@@ -64066,7 +64066,6 @@ function (_Component) {
   }, {
     key: "submitOrder",
     value: function submitOrder(paymentDetails) {
-      event.preventDefault();
       console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails); // fetch(...)
     }
   }, {
@@ -64148,9 +64147,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -64164,10 +64163,20 @@ var Checkout =
 function (_Component) {
   _inherits(Checkout, _Component);
 
-  function Checkout() {
+  function Checkout(props) {
+    var _this;
+
     _classCallCheck(this, Checkout);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Checkout).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Checkout).call(this, props));
+    _this.state = {
+      name: '',
+      address: ''
+    };
+    _this.onNameChange = _this.onNameChange.bind(_assertThisInitialized(_this));
+    _this.onAddressChange = _this.onAddressChange.bind(_assertThisInitialized(_this));
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Checkout, [{
@@ -64178,10 +64187,10 @@ function (_Component) {
   }, {
     key: "totalPriceCart",
     value: function totalPriceCart(cart) {
-      var _this = this;
+      var _this2 = this;
 
       return Object.keys(cart).reduce(function (acc, id) {
-        return acc + _this.totalPriceItem(cart[id]);
+        return acc + _this2.totalPriceItem(cart[id]);
       }, 0);
     }
   }, {
@@ -64191,12 +64200,29 @@ function (_Component) {
       return delivery;
     }
   }, {
-    key: "handleSubmit",
-    value: function handleSubmit() {
+    key: "onSubmit",
+    value: function onSubmit(event) {
+      console.log("".concat(this.state.name, ", ").concat(this.state.address));
+      event.preventDefault();
       var paymentDetails = {
-        name: 'test'
+        name: "".concat(this.state.name),
+        address: "".concat(this.state.address)
       };
       this.props.callback(paymentDetails);
+    }
+  }, {
+    key: "onNameChange",
+    value: function onNameChange(event) {
+      this.setState({
+        name: event.target.value
+      });
+    }
+  }, {
+    key: "onAddressChange",
+    value: function onAddressChange(event) {
+      this.setState({
+        address: event.target.value
+      });
     }
   }, {
     key: "render",
@@ -64207,19 +64233,26 @@ function (_Component) {
         className: "container-full top text-center"
       }, "Shopping cart is empty now."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "total float-right"
-      }, "Your shopping cart price: \u20AC", this.totalPriceCart(this.props.cart)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Your shopping cart price: \u20AC", this.totalPriceCart(this.props.cart)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "total float-right"
-      }, "Delivery price: \u20AC", this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Delivery price: \u20AC", this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "total float-right"
-      }, "Total: \u20AC", this.totalPriceCart(this.props.cart) + this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please enter your payment details:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Credit card number: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Address: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Submit order!")));
+      }, "Total: \u20AC", this.totalPriceCart(this.props.cart) + this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please enter your payment details:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.onSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "name",
+        value: this.state.name,
+        onChange: this.onNameChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Address: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "address",
+        value: this.state.address,
+        onChange: this.onAddressChange
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Submit order"
+      }))));
     }
   }]);
 

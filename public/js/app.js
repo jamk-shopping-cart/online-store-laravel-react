@@ -63863,6 +63863,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Checkout__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Checkout */ "./resources/js/components/Checkout.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -64036,12 +64038,6 @@ function (_Component) {
         quantity: itemStored.count,
         size: itemStored.size // Create item in DB:
         // fetch(`/api/orders/${orderId}/items/${orderItemId}?api_token=${this.token}`, {...})
-        // Items (products) -> item.id
-        // Orders -> order.id
-        // OrderItems -> orderItem.id, orderItem.orderId, orderItem.itemId
-        // 2 cases:
-        // 1. Create a new item (item does not exist in DB, so there is no orderItemId)
-        // 2. Update existing item (we know orderItemId).
 
       };
       fetch("/api/orders/".concat(orderId, "/items?api_token=").concat(this.token), {
@@ -64072,11 +64068,38 @@ function (_Component) {
   }, {
     key: "submitOrder",
     value: function submitOrder(paymentDetails) {
-      console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails); // TODO:
+      console.log('Send payment details to server and close the order. paymentDetails:'); // TODO:
       // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
       // POST /orders
       // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
-      // fetch(...)
+      // Prepare to save to DB:
+
+      var orderId = this.state.orderId;
+      var name = paymentDetails.name;
+      var address = paymentDetails.address; // Create order in DB:
+
+      fetch("/api/orders/?api_token=".concat(this.token), {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        // Check errors:
+        if (result.isError) {
+          console.log("Error! Can not save item to DB: ".concat(result.message));
+        } else {
+          console.log("Saved order to DB: ", result); // If this was a new order, we save order id:
+
+          if (!orderId) {
+            orderId = (_readOnlyError("orderId"), result.orderId);
+            console.log("Saving order: result.orderId=".concat(result.orderId));
+            saveToLocalstorage('orderId', orderId);
+          }
+        }
+      });
     }
   }, {
     key: "render",
@@ -65192,7 +65215,8 @@ function (_Component2) {
           callback = _this$props3.callback,
           item = _this$props3.item,
           count = _this$props3.count,
-          cart = _this$props3.cart;
+          cart = _this$props3.cart,
+          orderId = _this$props3.orderId;
       var match = matchPath(window.location.pathname, {
         path: path,
         exact: exact
@@ -65202,7 +65226,8 @@ function (_Component2) {
         callback: callback,
         item: item,
         count: count,
-        cart: cart
+        cart: cart,
+        orderId: orderId
       });else if (render) return render({
         match: match
       });

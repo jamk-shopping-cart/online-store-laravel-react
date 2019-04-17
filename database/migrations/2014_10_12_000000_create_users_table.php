@@ -24,17 +24,17 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        // DB::table('users')->insert(
-        //     array(
-        //         'name' => 'Dmitry',
-        //         'email' => 'dm.sklyarov@icloud.com',
-        //         'email_verified_at' => null,
-        //         'password' => '?',
-        //         'api_token' => '?',
-        //         'created_at' => '2019-04-01 00:00:00',
-        //         'updated_at' => '2019-04-01 00:00:00',
-        //     )
-        // );
+        DB::table('users')->insert(
+            array(
+                'name' => 'Dmitry',
+                'email' => 'dm.sklyarov@icloud.com',
+                'email_verified_at' => null,
+                'password' => '$2y$10$mqmEp9I0NDqEj6DOLt/PSuC2dRLLnft8UOcQKefo9GmgHh2DWrVSq',
+                'api_token' => 'dwQ19RW20GWCPPHHVMchsAXxhzXHrACAI3cFTpJXZEMvetAreuZMVFREIjzZ',
+                'created_at' => '2019-04-01 00:00:00',
+                'updated_at' => '2019-04-01 00:00:00',
+            )
+        );
     }
 
     /**

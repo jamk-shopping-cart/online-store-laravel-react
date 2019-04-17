@@ -22,27 +22,31 @@ class OrdersController extends Controller
     }
 
     // POST /api/orders
-    // Creates a new order OR updateds an existing order (with payment information).
-    // TODO:
+    // Creates a new order OR updates an existing order (with payment information).
     // If request has orderId and payment info then update existing order and complete it.
     public function store(Request $request)
     {
-        // $validatedData = $request->validate([
-        //   'name' => 'required',
-        //   'description' => 'required',
-        // ]);
-
-        // $user_id = $request->user_id;
-        // $request->user()
-        // $user_id = Auth::id();
         $user = Auth::guard('api')->user();
         if (!$user) {
             return response()->json(['isError' => true, 'message' => 'User has to be authenticated']);
         }
-        $order = Orders::create([
-            'user_id' => $user->id,
-        ]);
-        return response()->json(['message' => 'Order created!', 'order_id' => $order->id]);
+        if ($request->input('id')) {
+            $id = $request->input('id');
+            if (!$request->input('name') || !$request->input('address')) {
+                return response()->json(['isError' => true, 'message' => 'Name or address is not defined']);
+            }
+            Orders::whereId($id)->update([
+                'name' => $request->input('name'),
+                'address' => $request->input('address'),
+                'is_completed' => 1,
+            ]);
+            return response()->json(['message' => 'Order updated!', 'order_id' => $id]);
+        } else {
+            $order = Orders::create([
+                'user_id' => $user->id,
+            ]);
+            return response()->json(['message' => 'Order created!', 'order_id' => $order->id]);
+        }
     }
 
     // GET /api/orders/{id}

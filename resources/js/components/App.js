@@ -146,13 +146,43 @@ class App extends Component {
     }
 
     submitOrder(paymentDetails) {
-        console.log('Send payment details to server and close the order. paymentDetails:', paymentDetails);
+        console.log('Send payment details to server and close the order. paymentDetails:',  );
         // TODO:
         // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
         // POST /orders
         // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
 
-        // fetch(...)
+        // Prepare to save to DB:
+        const orderId = this.state.orderId;
+        const data = {
+            id: orderId,
+            name: paymentDetails.name,
+            address: paymentDetails.address
+        }
+
+        // Create order in DB:
+        fetch(`/api/orders?api_token=${this.token}`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                // Check errors:
+                if (result.isError) {
+                    console.log(`Error! Can not save item to DB: ${result.message}`);
+                } else {
+                    console.log(`Saved order to DB: `, result);
+                    // If this was a new order, we save order id:
+                    if (!orderId) {
+                        orderId = result.orderId;
+                        console.log(`Saving order: result.orderId=${result.orderId}`);
+                        saveToLocalstorage('orderId', orderId);
+                    }
+                }
+            })
     }
 
     render() {

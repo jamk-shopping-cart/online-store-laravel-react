@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->boolean('is_completed')->default(0);
-            $table->string('name');
-            $table->string('address');
-            $table->integer('totalPrice');
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('totalPrice')->default(0);
             $table->timestamps();
         });
     }

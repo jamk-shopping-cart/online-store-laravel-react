@@ -7,7 +7,7 @@ class StartPage extends Component {
       <div className="container-fluid d-flex">
         <div className="row w-100 mx-auto">
           <div className="col-12 title align-self-end text-center font-light">
-            <p className="animated fadeIn delay-0.5s">ShoeFlex</p>
+            <p className="animated fadeIn delay-0.5s">Online Store</p>
           </div>
           <div className="col-12 subtitle align-self-center text-center font-bold animated fadeIn delay-1s">
             <p>View Our Collection 2018</p>

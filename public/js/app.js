@@ -64922,7 +64922,7 @@ function (_Component) {
           className: "navbar-brand"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "header"
-        }, "ShoeFlex"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Online Store"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-2 text-center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "cart",
@@ -64998,7 +64998,7 @@ function (_Component) {
         className: "title col-12 top-title align-self-start text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "collection"
-      }, "ShoeFlex")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Online Store")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form col-11 col-md-8 col-lg-6 align-self-center mx-auto"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "email",
@@ -65485,7 +65485,7 @@ function (_Component) {
         className: "title col-12 top-title align-self-start text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "collection"
-      }, "ShoeFlex")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Online Store")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form col-11 col-md-8 col-lg-6 align-self-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "username",
@@ -65576,7 +65576,7 @@ function (_Component) {
         className: "col-12 title align-self-end text-center font-light"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "animated fadeIn delay-0.5s"
-      }, "ShoeFlex")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Online Store")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 subtitle align-self-center text-center font-bold animated fadeIn delay-1s"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "View Our Collection 2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "collection"

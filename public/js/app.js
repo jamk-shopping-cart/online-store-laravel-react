@@ -64068,17 +64068,16 @@ function (_Component) {
   }, {
     key: "submitOrder",
     value: function submitOrder(paymentDetails) {
-      console.log('Send payment details to server and close the order. paymentDetails:'); // TODO:
-      // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
-      // POST /orders
-      // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
-      // Prepare to save to DB:
+      console.log('Send payment details to server and close the order. paymentDetails:'); // Prepare to save to DB:
 
       var orderId = this.state.orderId;
-      var name = paymentDetails.name;
-      var address = paymentDetails.address; // Create order in DB:
+      var data = {
+        id: orderId,
+        name: paymentDetails.name,
+        address: paymentDetails.address // Create order in DB:
 
-      fetch("/api/orders/?api_token=".concat(this.token), {
+      };
+      fetch("/api/orders?api_token=".concat(this.token), {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -64097,6 +64096,7 @@ function (_Component) {
             orderId = (_readOnlyError("orderId"), result.orderId);
             console.log("Saving order: result.orderId=".concat(result.orderId));
             saveToLocalstorage('orderId', orderId);
+          } else {// TODO:existing order completed, then we can clear the cart and orderId:
           }
         }
       });

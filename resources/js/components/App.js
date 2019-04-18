@@ -147,11 +147,6 @@ class App extends Component {
 
     submitOrder(paymentDetails) {
         console.log('Send payment details to server and close the order. paymentDetails:',  );
-        // TODO:
-        // Send POST request to /api/orders with order.id and payment information to update the order (and complete it):
-        // POST /orders
-        // {orderId: this.cart.orderId, name: paymentDetails.name, ...}
-
         // Prepare to save to DB:
         const orderId = this.state.orderId;
         const data = {
@@ -180,6 +175,9 @@ class App extends Component {
                         orderId = result.orderId;
                         console.log(`Saving order: result.orderId=${result.orderId}`);
                         saveToLocalstorage('orderId', orderId);
+                    } else {
+                    // TODO:existing order completed, then we can clear the cart and orderId:
+
                     }
                 }
             })

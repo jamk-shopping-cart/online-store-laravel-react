@@ -7,19 +7,36 @@ class ItemList extends Component {
         this.state = { error: null, isLoaded: false, items: [] };
         this.page = 1;
         this.hasNext = true;
-        this.hasPrev = true;
+        this.hasPrev = false;
 
         this.showNext = event => {
             event.preventDefault();
-            this.page += 1;
-            this.loadPage();
-            // console.log('Next page=' + this.page)
+            if (this.page === this.state.lastPage) {
+                console.log('Last page=' + this.state.lastPage)
+                return;
+            }
+            else {
+                this.page += 1;
+                this.loadPage();
+            }
+            console.log('Next page=' + this.page)
         };
         this.showPrev = event => {
             event.preventDefault();
-            this.page -= 1;
-            this.loadPage();
-            // console.log('Prev page=' + this.page);
+            if (this.page <= 1) {
+                return;
+            }
+            else {
+                this.page -= 1;
+                this.loadPage();
+            }
+            console.log('Prev page=' + this.page);
+            if (this.page === 1) {
+                this.hasPrev = false;
+            }
+            else {
+                this.hasPrev = true;
+            }
         };
     }
 
@@ -31,7 +48,8 @@ class ItemList extends Component {
             .then(
                 result => {
                     console.log('result:', result);
-                    this.setState({ isLoaded: true, items: result.data });
+                    this.setState({ isLoaded: true, items: result.data, lastPage: result.last_page });
+                    console.log('this.state.items' + this.state.items)
                 },
                 error => {
                     this.setState({ isLoaded: true, error });
@@ -62,7 +80,8 @@ class ItemList extends Component {
                             </li>
                         ))}
                     </ul>
-                    {this.hasPrev && <button onClick={this.showPrev}>Previous</button>}
+                    {/* {this.hasPrev && <button onClick={this.showPrev}>Previous</button>} */}
+                    <button onClick={this.showPrev} style={{ opacity: (this.hasPrev ? '30%' : '80%') }}>Previous</button>
                     {this.hasNext && <button onClick={this.showNext}>Next</button>}
                 </div>
             );

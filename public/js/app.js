@@ -64068,6 +64068,8 @@ function (_Component) {
   }, {
     key: "submitOrder",
     value: function submitOrder(paymentDetails) {
+      var _this5 = this;
+
       console.log('Send payment details to server and close the order. paymentDetails:'); // Prepare to save to DB:
 
       var orderId = this.state.orderId;
@@ -64096,7 +64098,13 @@ function (_Component) {
             orderId = (_readOnlyError("orderId"), result.orderId);
             console.log("Saving order: result.orderId=".concat(result.orderId));
             saveToLocalstorage('orderId', orderId);
-          } else {// TODO:existing order completed, then we can clear the cart and orderId:
+          } else {
+            // existing order completed, then we can clear the cart and orderId:
+            _this5.setState({
+              count: 0,
+              cart: {},
+              orderId: null
+            });
           }
         }
       });
@@ -64135,6 +64143,7 @@ function (_Component) {
         path: "/checkout",
         component: _Checkout__WEBPACK_IMPORTED_MODULE_14__["default"],
         cart: this.state.cart,
+        count: this.state.count,
         callback: this.submitOrder.bind(this)
       }));
     }
@@ -64735,22 +64744,42 @@ function (_Component) {
     };
     _this.page = 1;
     _this.hasNext = true;
-    _this.hasPrev = true;
+    _this.hasPrev = false;
 
     _this.showNext = function (event) {
       event.preventDefault();
-      _this.page += 1;
+      console.log('this.state.items' + _this.state.items);
 
-      _this.loadPage(); // console.log('Next page=' + this.page)
+      if (_this.page === _this.state.lastPage) {
+        console.log('Last page=' + _this.state.lastPage);
+        return;
+      } else {
+        _this.page += 1;
 
+        _this.loadPage();
+      }
+
+      console.log('Next page=' + _this.page);
     };
 
     _this.showPrev = function (event) {
       event.preventDefault();
-      _this.page -= 1;
 
-      _this.loadPage(); // console.log('Prev page=' + this.page);
+      if (_this.page <= 1) {
+        return;
+      } else {
+        _this.page -= 1;
 
+        _this.loadPage();
+      }
+
+      console.log('Prev page=' + _this.page);
+
+      if (_this.page === 1) {
+        _this.hasPrev = false;
+      } else {
+        _this.hasPrev = true;
+      }
     };
 
     return _this;
@@ -64770,8 +64799,11 @@ function (_Component) {
 
         _this2.setState({
           isLoaded: true,
-          items: result.data
+          items: result.data,
+          lastPage: result.last_page
         });
+
+        console.log('this.state.items' + _this2.state.items);
       }, function (error) {
         _this2.setState({
           isLoaded: true,
@@ -64808,8 +64840,11 @@ function (_Component) {
             item: item,
             callback: callback
           }));
-        })), this.hasPrev && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.showPrev
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showPrev,
+          style: {
+            opacity: this.hasPrev ? '30%' : '80%'
+          }
         }, "Previous"), this.hasNext && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.showNext
         }, "Next"));

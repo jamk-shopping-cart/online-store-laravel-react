@@ -39,6 +39,7 @@ class Checkout extends Component {
     }
 
     render() {
+        // TODO: if(orderID) --> return ..., if(orderID = null) --> return ...
         return (
             <React.Fragment>
                 <Navigation count={this.props.count} />

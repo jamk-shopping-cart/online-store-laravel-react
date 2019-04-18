@@ -176,8 +176,8 @@ class App extends Component {
                         console.log(`Saving order: result.orderId=${result.orderId}`);
                         saveToLocalstorage('orderId', orderId);
                     } else {
-                    // TODO:existing order completed, then we can clear the cart and orderId:
-
+                        // existing order completed, then we can clear the cart and orderId:
+                        this.setState({ count: 0, cart: {}, orderId: null });
                     }
                 }
             })
@@ -212,6 +212,7 @@ class App extends Component {
                 <Route path="/checkout"
                     component={Checkout}
                     cart={this.state.cart}
+                    count={this.state.count}
                     callback={this.submitOrder.bind(this)}
                 />
             </div>

@@ -64269,6 +64269,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      // TODO: if(orderID) --> return ..., if(orderID = null) --> return ...
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_1__["default"], {
         count: this.props.count
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -64748,9 +64749,9 @@ function (_Component) {
 
     _this.showNext = function (event) {
       event.preventDefault();
-      console.log('this.state.items' + _this.state.items);
+      _this.hasPrev = true;
 
-      if (_this.page === _this.state.lastPage) {
+      if (_this.page >= _this.state.lastPage) {
         console.log('Last page=' + _this.state.lastPage);
         return;
       } else {
@@ -64759,11 +64760,18 @@ function (_Component) {
         _this.loadPage();
       }
 
+      if (_this.page === _this.state.lastPage) {
+        _this.hasNext = false;
+      } else {
+        _this.hasNext = true;
+      }
+
       console.log('Next page=' + _this.page);
     };
 
     _this.showPrev = function (event) {
       event.preventDefault();
+      _this.hasNext = true;
 
       if (_this.page <= 1) {
         return;
@@ -64773,13 +64781,13 @@ function (_Component) {
         _this.loadPage();
       }
 
-      console.log('Prev page=' + _this.page);
-
       if (_this.page === 1) {
         _this.hasPrev = false;
       } else {
         _this.hasPrev = true;
       }
+
+      console.log('Prev page=' + _this.page);
     };
 
     return _this;
@@ -64832,7 +64840,15 @@ function (_Component) {
       } else if (!isLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, items.map(function (item, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "bottom-1"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showPrev,
+          className: this.hasPrev ? 'enabled' : 'disabled'
+        }, "Previous"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showNext,
+          className: this.hasNext ? 'enabled' : 'disabled'
+        }, "Next")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, items.map(function (item, index) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: item.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -64840,14 +64856,15 @@ function (_Component) {
             item: item,
             callback: callback
           }));
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "bottom-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.showPrev,
-          style: {
-            opacity: this.hasPrev ? '30%' : '80%'
-          }
-        }, "Previous"), this.hasNext && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.showNext
-        }, "Next"));
+          className: this.hasPrev ? 'enabled' : 'disabled'
+        }, "Previous"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.showNext,
+          className: this.hasNext ? 'enabled' : 'disabled'
+        }, "Next")));
       }
     }
   }]);
@@ -65446,7 +65463,7 @@ function (_Component) {
           className: "col-12 mt-4 text-center animated fadeIn delay-1s"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Router__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "checkout"
-        }, "Continue to Pay"))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Continue to Pay")))));
       } else {
         // console.log('shopping cart is empty');
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_1__["default"], {

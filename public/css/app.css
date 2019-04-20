@@ -14478,9 +14478,29 @@ nav .circle {
   margin-top: 6em;
 }
 
+.bottom-1 {
+  margin-bottom: 1em;
+}
+
+.bottom-2 {
+  margin-bottom: 2em;
+}
+
 .pulse {
   font-size: 3em;
   font-weight: 200;
+}
+
+.disabled {
+  opacity: 0.5;
+  color: #ff9628;
+  font-size: 1.5em;
+}
+
+.enabled {
+  opacity: 1;
+  color: #ff9628;
+  font-size: 1.5em;
 }
 
 .model {

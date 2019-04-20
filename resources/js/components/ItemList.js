@@ -11,7 +11,8 @@ class ItemList extends Component {
 
         this.showNext = event => {
             event.preventDefault();
-            if (this.page === this.state.lastPage) {
+            this.hasPrev = true;
+            if (this.page >= this.state.lastPage) {
                 console.log('Last page=' + this.state.lastPage)
                 return;
             }
@@ -19,10 +20,17 @@ class ItemList extends Component {
                 this.page += 1;
                 this.loadPage();
             }
+            if (this.page === this.state.lastPage) {
+                this.hasNext = false;
+            }
+            else {
+                this.hasNext = true;
+            }
             console.log('Next page=' + this.page)
         };
         this.showPrev = event => {
             event.preventDefault();
+            this.hasNext = true;
             if (this.page <= 1) {
                 return;
             }
@@ -30,13 +38,13 @@ class ItemList extends Component {
                 this.page -= 1;
                 this.loadPage();
             }
-            console.log('Prev page=' + this.page);
             if (this.page === 1) {
                 this.hasPrev = false;
             }
             else {
                 this.hasPrev = true;
             }
+            console.log('Prev page=' + this.page);
         };
     }
 
@@ -73,6 +81,10 @@ class ItemList extends Component {
         } else {
             return (
                 <div>
+                    <div className="bottom-1">
+                        <button onClick={this.showPrev} className={(this.hasPrev ? 'enabled' : 'disabled')}>Previous</button>
+                        <button onClick={this.showNext} className={(this.hasNext ? 'enabled' : 'disabled')}>Next</button>
+                    </div>
                     <ul>
                         {items.map((item, index) => (
                             <li key={item.id}>
@@ -80,9 +92,10 @@ class ItemList extends Component {
                             </li>
                         ))}
                     </ul>
-                    {/* {this.hasPrev && <button onClick={this.showPrev}>Previous</button>} */}
-                    <button onClick={this.showPrev} style={{ opacity: (this.hasPrev ? '30%' : '80%') }}>Previous</button>
-                    {this.hasNext && <button onClick={this.showNext}>Next</button>}
+                    <div className="bottom-2">
+                        <button onClick={this.showPrev} className={(this.hasPrev ? 'enabled' : 'disabled') }>Previous</button>
+                        <button onClick={this.showNext} className={(this.hasNext ? 'enabled' : 'disabled')}>Next</button>
+                    </div>
                 </div>
             );
         }

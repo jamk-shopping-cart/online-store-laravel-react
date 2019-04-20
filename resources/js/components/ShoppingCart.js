@@ -78,7 +78,7 @@ class ShoppingCart extends Component {
                 Continue to Pay
               </button> */}
                 <Link to="checkout">
-                    Continue to Pay
+                    <span>Continue to Pay</span>
                 </Link>
             </div>
           </div>

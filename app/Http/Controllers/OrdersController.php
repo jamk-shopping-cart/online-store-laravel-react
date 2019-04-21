@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Mail;
 
 class OrdersController extends Controller
 {
@@ -41,10 +40,10 @@ class OrdersController extends Controller
                 'address' => $request->input('address'),
                 'is_completed' => 1,
             ]);
-            Mail::send(['text' => 'mail'], ['name', 'OnlineStore'], function ($message) {
-                $message->to('test.jamk@gmail.com', 'To online store')->subject('Test email');
-                $message->from('test.jamk@gmail.com', 'Online store');
-            });
+            // Mail::send(['text' => 'mail'], ['name', 'OnlineStore'], function ($message) {
+            //     $message->to('test.jamk@gmail.com', 'To online store')->subject('Test email');
+            //     $message->from('test.jamk@gmail.com', 'Online store');
+            // });
             return response()->json(['message' => 'Order updated!', 'order_id' => $id]);
         } else {
             $order = Orders::create([

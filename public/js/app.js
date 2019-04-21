@@ -63915,7 +63915,7 @@ function (_Component) {
 
     // console.log('item: ' + window.localStorage.getItem('item'));
     // console.log('count: ' + window.localStorage.getItem('count'));
-    // window.localStorage.clear();
+    window.localStorage.clear();
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
 
     if (window.localStorage) {// console.log('Local Storage is available');
@@ -64273,35 +64273,59 @@ function (_Component) {
     key: "render",
     value: function render() {
       if (!this.props.orderId) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thank you ", this.state.name, " for your order!");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          count: this.props.count
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container-full top text-center"
+        }, "Thank you ", this.state.name, "! Your order is complete and will send to your address tomorrow!"));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_1__["default"], {
         count: this.props.count
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container-full top text-center"
-      }, "Shopping cart is empty now."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "total float-right"
-      }, "Your shopping cart price: \u20AC", this.totalPriceCart(this.props.cart)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "total float-right"
-      }, "Delivery price: \u20AC", this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "total float-right"
-      }, "Total: \u20AC", this.totalPriceCart(this.props.cart) + this.toDelivery()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Please enter your payment details:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-header"
+      }, "Please enter your payment details:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.onSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Name: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "col-md-4 col-form-label text-md-right"
+      }, "Name:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "name",
+        placeholder: "Name",
+        autoFocus: true,
         value: this.state.name,
         onChange: this.onNameChange
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Address: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "col-md-4 col-form-label text-md-right"
+      }, "Address:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "address",
+        placeholder: "Address",
+        autoComplete: "name",
         value: this.state.address,
         onChange: this.onAddressChange
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: "Submit order"
-      }))));
+      })))))));
     }
   }]);
 

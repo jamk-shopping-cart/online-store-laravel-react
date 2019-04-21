@@ -41,24 +41,54 @@ class Checkout extends Component {
     render() {
         if (!this.props.orderId) {
             return (
-                <span>Thank you { this.state.name } for your order!</span>
+                <React.Fragment>
+                    <Navigation count={this.props.count} />
+                    <div className="container-full top text-center">Thank you {this.state.name}! Your order is complete and will send to your address tomorrow!</div>
+                </React.Fragment>
             );
         }
         return (
             <React.Fragment>
                 <Navigation count={this.props.count} />
-                <div className="container-full top text-center">Shopping cart is empty now.</div>
-                <span className="total float-right">Your shopping cart price: €{this.totalPriceCart(this.props.cart)}</span><br></br>
-                <span className="total float-right">Delivery price: €{this.toDelivery()}</span><br></br>
-                <span className="total float-right">Total: €{this.totalPriceCart(this.props.cart) + this.toDelivery()}</span><br></br>
-                <p>Please enter your payment details:</p>
-                <form onSubmit={this.onSubmit}>
-                    <p><label> Name: <input type="text" name="name" value={this.state.name}
-                        onChange={this.onNameChange} /></label></p>
-                    <p><label> Address: <input type="text" name="address" value={this.state.address}
-                        onChange={this.onAddressChange} /></label></p>
-                    <p><input type="submit" value="Submit order" /></p>
-                </form>
+                <div className="container-full top text-center" />
+                <div className="row justify-content-center">
+                    <div className="card">
+                        <div className="card-header">Please enter your payment details:</div>
+                        <div className="card-body">
+                            <form onSubmit={this.onSubmit}>
+                                <div className="form-group row">
+                                    <label className="col-md-4 col-form-label text-md-right">Name:</label>
+                                    <div className="col-md-6">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Name"
+                                            autoFocus
+                                            value={this.state.name}
+                                            onChange={this.onNameChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-md-4 col-form-label text-md-right">Address:</label>
+                                    <div className="col-md-6">
+                                        <input
+                                            type="text"
+                                            name="address"
+                                            placeholder="Address"
+                                            autoComplete="name"
+                                            value={this.state.address}
+                                            onChange={this.onAddressChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-center">
+                                    <input type="submit" value="Submit order" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

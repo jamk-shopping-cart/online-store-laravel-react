@@ -25,7 +25,7 @@ class App extends Component {
     constructor(props) {
         // console.log('item: ' + window.localStorage.getItem('item'));
         // console.log('count: ' + window.localStorage.getItem('count'));
-        // window.localStorage.clear();
+        window.localStorage.clear();
         super(props);
         if (window.localStorage) {
             // console.log('Local Storage is available');

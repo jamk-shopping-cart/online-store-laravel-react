@@ -362,45 +362,49 @@ nav {
 }
 
 // style for app.blade.php
-#app .navbar-brand,
-#app .nav-link {
-    color: $orange-color;
-}
+#app {
+    .navbar-brand,
+    .nav-link {
+        color: $orange-color;
+    }
 
-#app .navbar-brand {
-    font-size: $font-size-6;
-}
+    .navbar-brand {
+        font-size: $font-size-6;
+    }
 
-#app .nav-link {
-    font-size: $font-size-5;
+    .nav-link {
+        font-size: $font-size-5;
+    }
 }
 
 // style for login.blade.php
-#app a:hover {
-    text-decoration: none;
-    color: $darkorange-color;
-}
+#app {
+    a:hover {
+        text-decoration: none;
+        color: $darkorange-color;
+    }
 
-#app .form-control:focus {
-    outline: none;
-    box-shadow: none;
-    border-color: $grey-color;
-}
+    .form-control:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: $grey-color;
+    }
 
-#app .custom-control-label:before {
-    background-color: white;
-}
+    .custom-control-label:before {
+        background-color: white;
+    }
 
-#app .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-    background-color: $blue-color;
-}
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: $blue-color;
+    }
 
-#app .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='orange' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
-}
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='orange' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    }
 
-#app .custom-control-input:active ~ .custom-control-label::before {
-    background-color: $blue-color;
+    .custom-control-input:active ~ .custom-control-label::before {
+        background-color: $blue-color;
+    }
 }
 
 .custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {

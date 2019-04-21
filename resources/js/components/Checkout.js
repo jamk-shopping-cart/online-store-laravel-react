@@ -39,7 +39,11 @@ class Checkout extends Component {
     }
 
     render() {
-        // TODO: if(orderID) --> return ..., if(orderID = null) --> return ...
+        if (!this.props.orderId) {
+            return (
+                <span>Thank you { this.state.name } for your order!</span>
+            );
+        }
         return (
             <React.Fragment>
                 <Navigation count={this.props.count} />

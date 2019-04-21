@@ -63915,7 +63915,7 @@ function (_Component) {
 
     // console.log('item: ' + window.localStorage.getItem('item'));
     // console.log('count: ' + window.localStorage.getItem('count'));
-    window.localStorage.clear();
+    // window.localStorage.clear();
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
 
     if (window.localStorage) {// console.log('Local Storage is available');
@@ -64105,6 +64105,8 @@ function (_Component) {
               cart: {},
               orderId: null
             });
+
+            window.localStorage.clear();
           }
         }
       });
@@ -64144,6 +64146,7 @@ function (_Component) {
         component: _Checkout__WEBPACK_IMPORTED_MODULE_14__["default"],
         cart: this.state.cart,
         count: this.state.count,
+        orderId: this.state.orderId,
         callback: this.submitOrder.bind(this)
       }));
     }
@@ -64269,7 +64272,10 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      // TODO: if(orderID) --> return ..., if(orderID = null) --> return ...
+      if (!this.props.orderId) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Thank you ", this.state.name, " for your order!");
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navigation__WEBPACK_IMPORTED_MODULE_1__["default"], {
         count: this.props.count
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -25,7 +25,7 @@ class App extends Component {
     constructor(props) {
         // console.log('item: ' + window.localStorage.getItem('item'));
         // console.log('count: ' + window.localStorage.getItem('count'));
-        window.localStorage.clear();
+        // window.localStorage.clear();
         super(props);
         if (window.localStorage) {
             // console.log('Local Storage is available');
@@ -178,6 +178,7 @@ class App extends Component {
                     } else {
                         // existing order completed, then we can clear the cart and orderId:
                         this.setState({ count: 0, cart: {}, orderId: null });
+                        window.localStorage.clear();
                     }
                 }
             })
@@ -209,10 +210,12 @@ class App extends Component {
                     size={this.state.size}
                     count={this.state.count}
                 />
-                <Route path="/checkout"
+                <Route
+                    path="/checkout"
                     component={Checkout}
                     cart={this.state.cart}
                     count={this.state.count}
+                    orderId={this.state.orderId}
                     callback={this.submitOrder.bind(this)}
                 />
             </div>
